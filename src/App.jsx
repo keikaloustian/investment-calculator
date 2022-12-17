@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import Allocation from "./Components/Allocation";
-import Contribution from "./Components/Contribution";
+import Allocation from "./components/Allocation";
+import Contribution from "./components/Contribution";
 
 function App() {
   return (
