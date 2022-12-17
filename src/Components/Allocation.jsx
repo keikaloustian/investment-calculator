@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Asset from "./Assets";
 
 export default function Allocation() {
   // const assets = [0, 1, 2];
@@ -12,7 +13,7 @@ export default function Allocation() {
     <section>
       <h1>What do you want to invest in?</h1>
       {assets.map((a) => (
-        <p>{a}</p>
+        <Asset>{a}</Asset>
       ))}
       <button onClick={() => addAsset("test")}>Add</button>
     </section>
