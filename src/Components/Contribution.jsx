@@ -4,7 +4,7 @@ export default function Contribution() {
   const [amount, setAmount] = useState();
 
   return (
-    <>
+    <section>
       <h1>How much do you want to invest?</h1>
       <button onClick={() => setAmount(100)}>$100</button>
       <button onClick={() => setAmount(500)}>$500</button>
@@ -20,6 +20,6 @@ export default function Contribution() {
           onChange={(e) => setAmount(e.target.value)}
         ></input>
       </div>
-    </>
+    </section>
   );
 }
