@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+import Contribution from "./Components/Contribution";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App"></div>;
+  return (
+    <>
+      <main>
+        <Contribution></Contribution>
+      </main>
+    </>
+  );
 }
 
 export default App;
