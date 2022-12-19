@@ -22,14 +22,17 @@ export default function SearchBar() {
   };
 
   return (
-    <AsyncSelect
-      placeholder={"Search assets..."}
-      value={selected}
-      onChange={handleChange}
-      loadOptions={promiseOptions}
-      openMenuOnClick={false}
-      isMulti
-      isClearable
-    />
+    <>
+      <AsyncSelect
+        placeholder={"Search assets..."}
+        value={selected}
+        onChange={handleChange}
+        loadOptions={promiseOptions}
+        openMenuOnClick={false}
+        isMulti
+        isClearable
+      />
+      <button onClick={() => addAsset("test")}>Add</button>
+    </>
   );
 }

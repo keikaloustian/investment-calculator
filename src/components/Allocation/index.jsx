@@ -13,7 +13,7 @@ export default function Allocation() {
     <section>
       <h1>What do you want to invest in?</h1>
       <SearchBar></SearchBar>
-      <button onClick={() => addAsset("test")}>Add</button>
+
       <AssetList>{assets}</AssetList>
     </section>
   );
