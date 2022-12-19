@@ -6,4 +6,5 @@ Built with React, Vite.
 # Dependencies
 * react-select
 # Libraries & Tools
+* Vite
 # Setup
