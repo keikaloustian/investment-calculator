@@ -4,4 +4,7 @@ Built with React, Vite.
 
 # Finished Product
 # Dependencies
+* react-select
+# Libraries & Tools
+* Vite
 # Setup
