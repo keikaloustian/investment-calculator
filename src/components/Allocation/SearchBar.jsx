@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import AsyncSelect from "react-select/async";
 
-export default function SearchBar() {
-  const [selected, setSelected] = useState([]);
-
+export default function SearchBar({ assets, setAssets }) {
   const handleChange = (selectedAssets) => {
     // AsyncSelect component provides argument
     // which can be set as new state directly
-    setSelected(selectedAssets);
+    setAssets(selectedAssets);
   };
 
   const promiseOptions = (inputValue) => {
@@ -25,14 +23,13 @@ export default function SearchBar() {
     <>
       <AsyncSelect
         placeholder={"Search assets..."}
-        value={selected}
+        value={assets}
         onChange={handleChange}
         loadOptions={promiseOptions}
         openMenuOnClick={false}
         isMulti
         isClearable
       />
-      <button onClick={() => addAsset("test")}>Add</button>
     </>
   );
 }

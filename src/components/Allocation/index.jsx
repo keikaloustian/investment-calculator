@@ -3,18 +3,14 @@ import AssetList from "./AssetList";
 import SearchBar from "./SearchBar";
 
 export default function Allocation() {
-  const [assets, setAssets] = useState([0, 1, 2]);
-
-  const addAsset = (newAsset) => {
-    setAssets([...assets, newAsset]);
-  };
+  const [assets, setAssets] = useState([]);
 
   return (
     <section>
       <h1>What do you want to invest in?</h1>
-      <SearchBar></SearchBar>
+      <SearchBar assets={assets} setAssets={setAssets}></SearchBar>
 
-      <AssetList>{assets}</AssetList>
+      <AssetList assets={assets} />
     </section>
   );
 }
