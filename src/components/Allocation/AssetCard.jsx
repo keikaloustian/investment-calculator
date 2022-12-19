@@ -1,4 +1,4 @@
-export default function Asset(props) {
+export default function AssetCard(props) {
   return (
     <li>
       <span>{props.children}</span>
