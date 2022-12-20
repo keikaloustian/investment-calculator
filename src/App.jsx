@@ -9,7 +9,7 @@ function App() {
     <>
       <main>
         <Contribution amount={amount} setAmount={setAmount}></Contribution>
-        <Allocation></Allocation>
+        <Allocation amount={amount}></Allocation>
       </main>
     </>
   );
