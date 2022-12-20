@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-export default function Contribution() {
-  const [amount, setAmount] = useState("");
-
+export default function Contribution({ amount, setAmount }) {
   return (
     <section>
       <h1>How much do you want to invest?</h1>
