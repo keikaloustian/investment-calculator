@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import AsyncSelect from "react-select/async";
 
 export default function SearchBar({ assets, setAssets }) {
@@ -12,8 +11,10 @@ export default function SearchBar({ assets, setAssets }) {
     return fetch(`https://api.publicapis.org/entries?title=${inputValue}`)
       .then((response) => response.json())
       .then((data) =>
+        // Depends on shape of fetched data (TBD)
         data.entries.map((e) => ({
           value: e,
+          // label value depends on shape of fetched data (TBD)
           label: e.API,
         }))
       );
