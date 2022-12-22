@@ -1,13 +1,18 @@
 import AssetCard from "./AssetCard";
 
-export default function AssetList(props) {
+export default function AssetList({ assets, setAssets, amount }) {
   // List of asset cards
   return (
-    <ul>
-      <li>{props.amount}</li>
-      {props.assets.map((a) => (
-        <AssetCard asset={a}></AssetCard>
-      ))}
-    </ul>
+    <>
+      <p>amount {amount}</p>
+      <ul>
+        {assets.map((asset) => (
+          <AssetCard
+            data={asset.value}
+            key={asset.value["instrument_name"]}
+          ></AssetCard>
+        ))}
+      </ul>
+    </>
   );
 }

@@ -1,11 +1,10 @@
-export default function AssetCard(props) {
+export default function AssetCard({ data }) {
   // Card containing ticker symbol, price, etc
   // props. properties depend on shape of fetched data (TBD)
   return (
     <li>
-      <span>{props.asset.value.API}</span>
-      <span>TICK</span>
-      <span>$3.12</span>
+      <span>{data.symbol}</span>
+      <span>{data["instrument_name"]}</span>
     </li>
   );
 }
