@@ -8,7 +8,6 @@ export default function SearchBar({ assets, setAssets }) {
     // AsyncSelect component provides argument
     // which can be set as new state directly
     setAssets(selectedAssets);
-    console.log(selectedAssets);
   };
 
   const promiseOptions = (inputValue) => {
@@ -29,7 +28,6 @@ export default function SearchBar({ assets, setAssets }) {
           return parsed.data.map((asset) => ({
             value: asset,
             label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
-            key: asset.symbol,
           }));
         })
         .catch((error) => {
