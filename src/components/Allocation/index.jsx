@@ -10,7 +10,7 @@ export default function Allocation({ amount }) {
       <h1>What do you want to invest in?</h1>
       <SearchBar assets={assets} setAssets={setAssets}></SearchBar>
 
-      <AssetList assets={assets} amount={amount} />
+      <AssetList assets={assets} setAssets={setAssets} amount={amount} />
     </section>
   );
 }
