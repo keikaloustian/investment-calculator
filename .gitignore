@@ -25,3 +25,7 @@ dist-ssr
 
 # Environmental variables
 .env
+
+# Netlify files
+netlify_functions
+netlify.toml
