@@ -11,29 +11,19 @@ export default function SearchBar({ assets, setAssets }) {
   };
 
   const promiseOptions = (inputValue) => {
-    // Function must return an array of objects formatted for the AsyncSelect
-    // component to display the options
-    return (
-      fetch(`${import.meta.env.VITE_API_SEARCH_ROUTE}?symbol=${inputValue}`, {
-        headers: { Authorization: `apikey ${import.meta.env.VITE_API_KEY}` },
+    // Function must return a promise that resolves to an array of objects
+    return fetch(`/netlify_functions/apiSearch?symbol=${inputValue}`)
+      .then((payload) => {
+        console.log(payload);
+        // Map data into object in format required by the AsyncSelect component
+        // return payload.body.data.map((asset) => ({
+        //   value: asset,
+        //   label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
+        // }));
       })
-        // Necessary step to parse response
-        .then((response) => {
-          // console.log(response);
-          return response.json();
-        })
-        .then((parsed) => {
-          // console.log(parsed);
-          // Map data into object
-          return parsed.data.map((asset) => ({
-            value: asset,
-            label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
-          }));
-        })
-        .catch((error) => {
-          setError(true);
-        })
-    );
+      .catch((error) => {
+        setError(true);
+      });
   };
 
   return (
