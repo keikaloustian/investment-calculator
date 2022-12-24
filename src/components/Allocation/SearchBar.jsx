@@ -12,14 +12,18 @@ export default function SearchBar({ assets, setAssets }) {
 
   const promiseOptions = (inputValue) => {
     // Function must return a promise that resolves to an array of objects
-    return fetch(`/netlify_functions/apiSearch?symbol=${inputValue}`)
-      .then((payload) => {
-        console.log(payload);
+    return fetch(`/.netlify/functions/apiSearch?symbol=${inputValue}`)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((parsed) => {
+        console.log(parsed);
         // Map data into object in format required by the AsyncSelect component
-        // return payload.body.data.map((asset) => ({
-        //   value: asset,
-        //   label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
-        // }));
+        return parsed.data.map((asset) => ({
+          value: asset,
+          label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
+        }));
       })
       .catch((error) => {
         setError(true);
