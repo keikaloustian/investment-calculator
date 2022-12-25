@@ -10,29 +10,34 @@ export default function SearchBar({ assets, setAssets }) {
     setAssets(selectedAssets);
   };
 
-  const promiseOptions = (inputValue) => {
+  const promiseOptions = async (inputValue) => {
+    setError("");
     // Function must return a promise that resolves to an array of objects
-    return fetch(`/.netlify/functions/apiSearch?symbol=${inputValue}`)
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((parsed) => {
-        console.log(parsed);
-        // Map data into object in format required by the AsyncSelect component
-        return parsed.data.map((asset) => ({
-          value: asset,
-          label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
-        }));
-      })
-      .catch((error) => {
-        setError(true);
-      });
+    try {
+      const response = await fetch(
+        `/.netlify/functions/apiSearch?symbol=${inputValue}`
+      );
+      // If response isn't ok, throw Error to be caught
+      if (!response.ok) {
+        throw new Error(
+          `There's been an error (${response.status} - ${response.statusText})`
+        );
+      }
+      // If response is ok, parse body
+      const parsed = await response.json();
+      // Map parsed data into object in format required by the AsyncSelect component
+      return parsed.data.map((asset) => ({
+        value: asset,
+        label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
+      }));
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
     <>
-      {error && <p>There's been an error</p>}
+      {error && <p>{error}</p>}
       <AsyncSelect
         placeholder={"Search assets..."}
         value={assets}
