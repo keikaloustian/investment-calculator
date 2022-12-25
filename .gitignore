@@ -26,9 +26,5 @@ dist-ssr
 # Environmental variables
 .env
 
-# Netlify files
-functions
-netlify.toml
-
 # Local Netlify folder
 .netlify
