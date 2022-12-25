@@ -6,7 +6,8 @@ Tool for calculating how much of a planned contribution should be allocated to e
 * react-select
 * Deploying on Netlify
 * Protecting secrets using serverless functions / proxy server and environment variables
-* fetch API, async-await  
+* fetch API, async-await
+* https://httpstat.us/ - an "API" that generates all the different HTTP status and responses
 
 ## Finished Product  
 ## Dependencies
