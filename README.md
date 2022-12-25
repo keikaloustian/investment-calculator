@@ -4,7 +4,7 @@ Tool for calculating how much of a planned contribution should be allocated to e
 ## Things I learned
 * Vite
 * react-select
-* Deploying on Netlify, serverless functions
+* Deploying on Netlify
 * Protecting secrets using serverless functions / proxy server and environment variables
 * fetch API, async-await  
 
