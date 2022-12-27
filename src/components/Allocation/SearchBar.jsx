@@ -39,13 +39,14 @@ export default function SearchBar({ assets, setAssets }) {
     <>
       {error && <p>{error}</p>}
       <AsyncSelect
-        placeholder={"Search assets..."}
+        placeholder={"Search assets"}
         value={assets}
         onChange={handleChange}
         loadOptions={promiseOptions}
         openMenuOnClick={false}
         isMulti
         isClearable
+        noOptionsMessage={() => "No assets found"}
       />
     </>
   );
