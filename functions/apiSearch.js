@@ -31,7 +31,7 @@ const handler = async (event) => {
     // the JSON body content must be extracted using the .json() method
     const parsed = await response.json();
 
-    // Return object in format recommended by Netlify's Functions Docs
+    // Return object containing status code and body (recommended by Netlify's Functions Docs)
     return { statusCode: 200, body: JSON.stringify(parsed) };
 
     // Catch if fetch promise rejects (network failure/request did not complete)
