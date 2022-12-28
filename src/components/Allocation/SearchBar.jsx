@@ -20,7 +20,7 @@ export default function SearchBar({ assets, setAssets }) {
       // If response isn't ok, throw Error to be caught
       if (!response.ok) {
         throw new Error(
-          `There's been an error (${response.status} - ${response.statusText})`
+          `Unable to retrieve assets (status ${response.status} - ${response.statusText})`
         );
       }
       // If response is ok, parse body
@@ -37,7 +37,6 @@ export default function SearchBar({ assets, setAssets }) {
 
   return (
     <>
-      {error && <p>{error}</p>}
       <AsyncSelect
         placeholder={"Search assets"}
         value={assets}
@@ -47,7 +46,9 @@ export default function SearchBar({ assets, setAssets }) {
         isMulti
         isClearable
         noOptionsMessage={() => "No assets found"}
+        // unstyled
       />
+      {error && <p>{error}</p>}
     </>
   );
 }
