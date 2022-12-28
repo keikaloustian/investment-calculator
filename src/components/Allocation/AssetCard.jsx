@@ -1,7 +1,7 @@
 import usePriceData from "../../hooks/usePriceData";
 
 export default function AssetCard({ data }) {
-  const { price } = usePriceData(data.symbol, data.exchange);
+  const { price, error } = usePriceData(data.symbol, data.exchange);
 
   return (
     <li>
@@ -9,6 +9,7 @@ export default function AssetCard({ data }) {
       <span>{data["instrument_name"]}</span>
       <span>EXCHANGE: {data.exchange} </span>
       <span>PRICE: {price} </span>
+      {error && <span>{error}</span>}
     </li>
   );
 }
