@@ -1,10 +1,14 @@
+import usePriceData from "../../hooks/usePriceData";
+
 export default function AssetCard({ data }) {
-  // Card containing ticker symbol, price, etc
-  // props. properties depend on shape of fetched data (TBD)
+  const { price } = usePriceData(data.symbol, data.exchange);
+
   return (
     <li>
-      <span>{data.symbol}</span>
+      <span>SYMBOL {data.symbol} </span>
       <span>{data["instrument_name"]}</span>
+      <span>EXCHANGE: {data.exchange} </span>
+      <span>PRICE: {price} </span>
     </li>
   );
 }
