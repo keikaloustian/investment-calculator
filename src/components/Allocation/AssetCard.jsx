@@ -1,7 +1,7 @@
-import usePriceData from "../../hooks/usePriceData";
+import useApiPrice from "../../hooks/useApiPrice";
 
 export default function AssetCard({ data }) {
-  const { price, error } = usePriceData(data.symbol, data.exchange);
+  const { price, error } = useApiPrice(data.symbol, data.exchange);
 
   return (
     <li>

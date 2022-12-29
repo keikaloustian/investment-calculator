@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function usePriceData(symbol, exchange) {
+export default function useApiPrice(symbol, exchange) {
   const [price, setPrice] = useState("");
   const [error, setError] = useState("");
 
