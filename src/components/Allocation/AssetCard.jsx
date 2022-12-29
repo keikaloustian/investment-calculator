@@ -9,6 +9,10 @@ export default function AssetCard({ data }) {
       <span>{data["instrument_name"]}</span>
       <span>EXCHANGE: {data.exchange} </span>
       <span>PRICE: {price} </span>
+      <label>
+        Allocation (%)
+        <input type={"range"} min={0} max={100} />
+      </label>
       {error && <span>{error}</span>}
     </li>
   );
