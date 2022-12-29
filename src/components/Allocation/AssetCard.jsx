@@ -8,7 +8,7 @@ export default function AssetCard({ data }) {
       <span>SYMBOL {data.symbol} </span>
       <span>{data["instrument_name"]}</span>
       <span>EXCHANGE: {data.exchange} </span>
-      <span>PRICE: {price} </span>
+      <span>PRICE: {price ? price : "loading..."}</span>
       <label>
         Allocation (%)
         <input type={"range"} min={0} max={100} />
