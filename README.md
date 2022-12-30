@@ -4,10 +4,11 @@ Tool for calculating how much of a planned contribution should be allocated to e
 ## Things I Learned
 * Vite
 * react-select (mainly the AsyncSelect component)
-* Deploying on Netlify
-* Using third-party API's
-* Protecting secrets using serverless functions / proxy server and build environment variables
+* useContext hook
 * JavaScript fetch API and async-await syntax
+* Using third-party API's
+* Deploying on Netlify
+* Protecting secrets using serverless functions / proxy server and build environment variables
 * https://httpstat.us - an "API" that generates all the different HTTP statuses and responses
 * https://github.com/public-apis/public-apis - a list of free API's
 
