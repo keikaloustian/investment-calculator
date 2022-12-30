@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
+import { AllocationContext } from "./AssetList";
 
 export default function AssetCard({ data }) {
   const { price, error } = useApiPrice(data.symbol, data.exchange);
-  const [allocation, setAllocation] = useState(0);
+  const [value, setSliderValue] = useState(0);
+  // Access AllocationContext provided by AssetList
+  const { remainder, setRemainder } = useContext(AllocationContext);
 
   const handleSlider = (event) => {
-    setAllocation(event.target.value);
+    const newValue = event.target.value;
+    if (newValue > value) {
+      // console.log(newValue);
+      // setSliderValue(newValue);
+      if (remainder > 0) {
+        setRemainder((prev) => prev - (newValue - value));
+        setSliderValue(newValue);
+      }
+    } else if (newValue < value) {
+      // console.log("-", newValue);
+      setSliderValue(newValue);
+      setRemainder((prev) => prev + (value - newValue));
+    }
   };
 
   return (
@@ -15,17 +30,22 @@ export default function AssetCard({ data }) {
       <span>{data["instrument_name"]}</span>
       <span>EXCHANGE: {data.exchange} </span>
       <span>PRICE: {price ? price : "loading..."}</span>
-      <label>
-        Allocation (%)
-        {allocation}
-        <input
-          type={"range"}
-          min={0}
-          max={100}
-          value={allocation}
-          onChange={handleSlider}
-        />
-      </label>
+      <div>
+        <label>
+          Allocation (%)
+          {value}
+          <div>
+            <input
+              type={"range"}
+              min={0}
+              max={100}
+              value={value}
+              onChange={handleSlider}
+            />
+          </div>
+        </label>
+        <div>{remainder}</div>
+      </div>
       {error && <span>{error}</span>}
     </li>
   );
