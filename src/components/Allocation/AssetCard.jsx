@@ -5,19 +5,23 @@ import { AllocationContext } from "./AssetList";
 export default function AssetCard({ data }) {
   const { price, error } = useApiPrice(data.symbol, data.exchange);
   const [value, setSliderValue] = useState(0);
+
   // Access AllocationContext provided by AssetList
   const { remainder, setRemainder } = useContext(AllocationContext);
 
   const handleSlider = (event) => {
-    const newValue = event.target.value;
+    // Convert the value of the input of type range from string to number
+    const newValue = Number(event.target.value);
+
+    // Handle increase (slide to right)
     if (newValue > value) {
       if (remainder > 0) {
         setRemainder((prev) => prev - (newValue - value));
         setSliderValue(newValue);
       }
     }
+    // Handle decrease (slide to left)
     if (newValue < value) {
-      // console.log("-", newValue);
       setSliderValue(newValue);
       setRemainder((prev) => prev + (value - newValue));
     }
@@ -39,12 +43,10 @@ export default function AssetCard({ data }) {
               min={0}
               max={100}
               value={value}
-              // onChange={handleSlider}
               onInput={handleSlider}
             />
           </div>
         </label>
-        <div>{remainder}</div>
       </div>
       {error && <span>{error}</span>}
     </li>
