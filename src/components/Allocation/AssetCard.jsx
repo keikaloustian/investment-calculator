@@ -11,13 +11,12 @@ export default function AssetCard({ data }) {
   const handleSlider = (event) => {
     const newValue = event.target.value;
     if (newValue > value) {
-      // console.log(newValue);
-      // setSliderValue(newValue);
       if (remainder > 0) {
         setRemainder((prev) => prev - (newValue - value));
         setSliderValue(newValue);
       }
-    } else if (newValue < value) {
+    }
+    if (newValue < value) {
       // console.log("-", newValue);
       setSliderValue(newValue);
       setRemainder((prev) => prev + (value - newValue));
@@ -40,7 +39,8 @@ export default function AssetCard({ data }) {
               min={0}
               max={100}
               value={value}
-              onChange={handleSlider}
+              // onChange={handleSlider}
+              onInput={handleSlider}
             />
           </div>
         </label>
