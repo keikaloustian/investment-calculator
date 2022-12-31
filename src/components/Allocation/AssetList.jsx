@@ -8,9 +8,10 @@ export default function AssetList({ assets, setAssets, amount }) {
   const [remainder, setRemainder] = useState(100);
 
   return (
-    // Provider that gives asset cards access to the remainder to be allocated
+    // Provider that gives access to the remainder % of contribution be allocated
     <AllocationContext.Provider value={{ remainder, setRemainder }}>
       <p>amount {amount}</p> {/* To be deleted*/}
+      <p>remainder % {remainder}</p> {/* To be deleted*/}
       {/* List of asset cards */}
       <ul>
         {assets.map((asset) => (
