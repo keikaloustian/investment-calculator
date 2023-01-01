@@ -7,16 +7,24 @@ variables need to be defined in the Netlify Build environment variables
 
 import fetch from "node-fetch";
 
+const countryCodes = {
+  "United States": "trade/stock/",
+  Canada: "stock/canada/",
+  "United Kingdom": "stock/uk/",
+  Russia: "stock/moex/",
+  India: "stock/in/",
+};
+
 const handler = async (event) => {
   // Capture ticker and exchange from request
-  const { symbol, exchange } = event.queryStringParameters;
+  const { symbol, country } = event.queryStringParameters;
+
+  // Lookup url code for country where to which asset belongs
+  const market = countryCodes[country];
 
   try {
     const response = await fetch(
-      `${process.env.API_PRICE_ENDPOINT}?symbol=${symbol}&exchange=${exchange}`,
-      {
-        headers: { Authorization: `apikey ${process.env.API_KEY}` },
-      }
+      `${process.env.API_PRICE_ENDPOINT}${market}${symbol}?apikey=${process.env.PRICE_API_KEY}`
     );
 
     // If response status is not ok, send status text as response body
