@@ -5,11 +5,13 @@ export default function SearchBar({ assets, setAssets }) {
   const [error, setError] = useState(false);
 
   const handleChange = (selectedAssets) => {
-    // AsyncSelect component provides argument
-    // which can be set as new state directly
+    // The argument is provided by the AsyncSelect component
+    // which can be set as the new state directly
     setAssets(selectedAssets);
   };
 
+  // Function responsible for fetching the options for the search bar
+  // Receives the inputValue arg from the AsyncSelect component
   const promiseOptions = async (inputValue) => {
     setError("");
     // Function must return a promise that resolves to an array of objects
