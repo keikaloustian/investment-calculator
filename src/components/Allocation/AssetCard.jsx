@@ -48,7 +48,7 @@ export default function AssetCard({ data }) {
           </div>
         </label>
       </div>
-      {error && <span>{error}</span>}
+      {error && <p>{error}</p>}
     </li>
   );
 }
