@@ -3,7 +3,7 @@ import useApiPrice from "../../hooks/useApiPrice";
 import { AllocationContext } from "./AssetList";
 
 export default function AssetCard({ data }) {
-  const { price, error } = useApiPrice(data.symbol, data.exchange);
+  const { price, error } = useApiPrice(data.symbol, data.country);
   const [value, setSliderValue] = useState(0);
 
   // Access AllocationContext provided by AssetList
