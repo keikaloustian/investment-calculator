@@ -13,7 +13,7 @@ const handler = async (event) => {
 
   try {
     const response = await fetch(
-      `${process.env.API_SEARCH_ENDPOINT}?symbol=${symbol}`,
+      `${process.env.SEARCH_API_ENDPOINT}?symbol=${symbol}`,
       {
         headers: { Authorization: `apikey ${process.env.SEARCH_API_KEY}` },
       }

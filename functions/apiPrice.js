@@ -24,7 +24,7 @@ const handler = async (event) => {
 
   try {
     const response = await fetch(
-      `${process.env.API_PRICE_ENDPOINT}${market}${symbol}?apikey=${process.env.PRICE_API_KEY}`
+      `${process.env.PRICE_API_ENDPOINT}${market}${symbol}?apikey=${process.env.PRICE_API_KEY}`
     );
 
     // If response status is not ok, send status text as response body
