@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function useApiPrice(symbol, exchange) {
+export default function useApiPrice(symbol, country) {
   const [price, setPrice] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`/.netlify/functions/apiPrice?symbol=${symbol}&exchange=${exchange}`)
+    fetch(`/.netlify/functions/apiPrice?symbol=${symbol}&country=${country}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
