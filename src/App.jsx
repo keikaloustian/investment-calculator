@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./App.css";
+import "./App.scss";
+
 import Allocation from "./components/Allocation";
 import Contribution from "./components/Contribution";
 
