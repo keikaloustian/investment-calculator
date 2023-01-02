@@ -21,6 +21,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "netlify-cli": "^12.5.0",
     "node-fetch": "^3.3.0",
+    "sass": "^1.57.1",
     "vite": "^4.0.0"
   }
 }
