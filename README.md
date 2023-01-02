@@ -2,7 +2,9 @@
 Web app for calculating how much of a planned contribution should be allocated to each asset in a portfolio (e.g. stocks, ETFs, etc) based on user-defined proportions.  
   
 Price quotes (and therefore the calculation feature) are only available for assets in the US, Canada, UK, India and Russia due to limitations of the free API plan.  
-
+  
+## Live Demo  
+  
 ## Things I Learned
 * Vite
 * react-select (mainly the AsyncSelect component)
