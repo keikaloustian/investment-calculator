@@ -3,9 +3,9 @@ import useApiPrice from "../../hooks/useApiPrice";
 import { AllocationContext } from "./AssetList";
 import handleSlider from "../../helpers/handleSlider";
 
-export default function AssetCard({ data }) {
+export default function AssetCard({ data, amount }) {
   const { price, error } = useApiPrice(data.symbol, data.country);
-  const [value, setSliderValue] = useState(0);
+  const [sliderValue, setSliderValue] = useState(0);
 
   // Access AllocationContext provided by AssetList
   const { remainder, setRemainder } = useContext(AllocationContext);
@@ -19,23 +19,27 @@ export default function AssetCard({ data }) {
       <div>
         <label>
           Allocation (%)
-          {value}
+          {sliderValue}
           <div>
             <input
               type={"range"}
               min={0}
               max={100}
-              value={value}
+              value={sliderValue}
               onInput={(event) =>
                 handleSlider(
                   event,
-                  value,
+                  sliderValue,
                   remainder,
                   setRemainder,
                   setSliderValue
                 )
               }
             />
+            <span>
+              SHARES:
+              {Math.floor((amount * (sliderValue / 100)) / Number(price))}
+            </span>
           </div>
         </label>
       </div>
