@@ -28,6 +28,7 @@ export default function SearchBar({ assets, setAssets }) {
       // If response is ok, parse body
       const parsed = await response.json();
       // Map parsed data into object in format required by the AsyncSelect component
+      // If an asset is selected more than once, it raises the unique id warning
       return parsed.data.map((asset) => ({
         value: asset,
         label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
