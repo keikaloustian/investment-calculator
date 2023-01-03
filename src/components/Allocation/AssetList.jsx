@@ -15,7 +15,7 @@ export default function AssetList({ assets, setAssets, amount }) {
       {/* List of asset cards */}
       <ul>
         {assets.map((asset, index) => (
-          <AssetCard data={asset.value} key={index}></AssetCard>
+          <AssetCard data={asset.value} key={index} amount={amount}></AssetCard>
         ))}
       </ul>
     </AllocationContext.Provider>
