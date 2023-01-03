@@ -1,31 +1,14 @@
 import { useState, useContext } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
 import { AllocationContext } from "./AssetList";
+import handleSlider from "../../helpers/handleSlider";
 
-export default function AssetCard({ data }) {
+export default function AssetCard({ data, amount }) {
   const { price, error } = useApiPrice(data.symbol, data.country);
-  const [value, setSliderValue] = useState(0);
+  const [sliderValue, setSliderValue] = useState(0);
 
   // Access AllocationContext provided by AssetList
   const { remainder, setRemainder } = useContext(AllocationContext);
-
-  const handleSlider = (event) => {
-    // Convert the value of the input of type range from string to number
-    const newValue = Number(event.target.value);
-
-    // Handle increase (slide to right)
-    if (newValue > value) {
-      if (remainder > 0) {
-        setRemainder((prev) => prev - (newValue - value));
-        setSliderValue(newValue);
-      }
-    }
-    // Handle decrease (slide to left)
-    if (newValue < value) {
-      setSliderValue(newValue);
-      setRemainder((prev) => prev + (value - newValue));
-    }
-  };
 
   return (
     <li>
@@ -36,15 +19,27 @@ export default function AssetCard({ data }) {
       <div>
         <label>
           Allocation (%)
-          {value}
+          {sliderValue}
           <div>
             <input
               type={"range"}
               min={0}
               max={100}
-              value={value}
-              onInput={handleSlider}
+              value={sliderValue}
+              onInput={(event) =>
+                handleSlider(
+                  event,
+                  sliderValue,
+                  remainder,
+                  setRemainder,
+                  setSliderValue
+                )
+              }
             />
+            <span>
+              SHARES:
+              {Math.floor((amount * (sliderValue / 100)) / Number(price))}
+            </span>
           </div>
         </label>
       </div>

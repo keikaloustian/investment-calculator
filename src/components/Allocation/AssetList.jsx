@@ -14,11 +14,8 @@ export default function AssetList({ assets, setAssets, amount }) {
       <p>remainder % {remainder}</p> {/* To be deleted*/}
       {/* List of asset cards */}
       <ul>
-        {assets.map((asset) => (
-          <AssetCard
-            data={asset.value}
-            key={asset.value["instrument_name"]}
-          ></AssetCard>
+        {assets.map((asset, index) => (
+          <AssetCard data={asset.value} key={index} amount={amount}></AssetCard>
         ))}
       </ul>
     </AllocationContext.Provider>
