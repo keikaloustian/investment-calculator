@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Contribution.scss";
 
 export default function Contribution({ amount, setAmount }) {
   return (

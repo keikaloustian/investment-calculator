@@ -1,6 +1,13 @@
-@import "styles/reset.scss";
 @import "styles/variables.scss";
 
 main {
+  display: flex;
   background-color: white;
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
 }

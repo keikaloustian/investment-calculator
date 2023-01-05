@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AssetList from "./AssetList";
 import SearchBar from "./SearchBar";
+import "./Allocation.scss";
 
 export default function Allocation({ amount }) {
   const [assets, setAssets] = useState([]);
