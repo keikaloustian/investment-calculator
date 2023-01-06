@@ -7,7 +7,7 @@ export default function Allocation({ amount }) {
   const [assets, setAssets] = useState([]);
 
   return (
-    <section id="allocation">
+    <section className="allocation">
       <h1>What do you want to invest in?</h1>
       <SearchBar assets={assets} setAssets={setAssets}></SearchBar>
 

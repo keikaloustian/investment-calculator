@@ -1,13 +1,15 @@
-@import "styles/variables.scss";
+@use "../abstracts/variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 
 main {
   display: flex;
-  background-color: white;
+  flex-direction: column;
+  background-color: $med-blue-gray;
+  font-family: $font-primary;
 }
 
-@media screen and (max-width: $breakpoint-small) {
+@media screen and (min-width: $breakpoint-tablet) {
   main {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 }

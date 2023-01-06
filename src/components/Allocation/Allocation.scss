@@ -1,3 +1,5 @@
-#allocation {
-  display: inline-block;
+@use "../../../abstracts/variables";
+
+.allocation {
+  background-color: white;
 }
