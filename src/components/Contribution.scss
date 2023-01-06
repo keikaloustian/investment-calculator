@@ -1,3 +1,41 @@
-#contribution {
-  display: inline-block;
+@use "../../abstracts/variables" as *;
+
+.contribution {
+  background-color: white;
+}
+
+.contribution__heading {
+  color: $accent-blue;
+}
+
+.button {
+  color: $accent-blue;
+  font-weight: 700;
+  padding: 0.5em;
+  border: solid 1.5px $accent-blue;
+  margin-bottom: 2em;
+}
+
+.button:hover {
+  background-color: $light-bg-blue;
+  cursor: pointer;
+}
+
+.button--left {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: none;
+}
+
+.button--right {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-left: none;
+}
+
+.input__adornment {
+  display: inline;
+  border: solid 1px $border-gray;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
