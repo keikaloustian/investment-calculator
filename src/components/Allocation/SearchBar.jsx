@@ -49,7 +49,7 @@ export default function SearchBar({ assets, setAssets }) {
         isMulti
         isClearable
         noOptionsMessage={() => "No assets found"}
-        // unstyled
+        unstyled
       />
       {error && <p>{error}</p>}
     </>
