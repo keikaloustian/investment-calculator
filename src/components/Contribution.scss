@@ -2,7 +2,7 @@
 
 .contribution {
   background-color: white;
-  border: 2px solid $med-blue-gray;
+  border: 2px solid $dark-blue-gray;
   border-radius: 6px;
   margin: 0.5rem;
   // padding: 0.5rem;
@@ -13,7 +13,7 @@
   padding: 0.5em;
   margin-top: 0;
   margin-bottom: 1rem;
-  background-color: $med-blue-gray;
+  background-color: $dark-blue-gray;
 }
 
 .button {
@@ -42,8 +42,8 @@
   border-left: none;
 }
 
-.input {
-}
+// .input {
+// }
 
 .input__adornment {
   display: inline;
