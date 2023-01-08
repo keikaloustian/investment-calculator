@@ -4,14 +4,11 @@
 main {
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
   background-color: white;
   font-family: $font-primary;
   width: clamp(300px, 60%, 600px);
   margin-inline: auto;
   height: 100vh;
-  // border: solid 3px red;
-  // border-radius: 6px;
 }
 
 body {
