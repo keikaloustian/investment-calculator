@@ -1,0 +1,66 @@
+@use "../../abstracts/variables" as *;
+
+.contribution {
+  background-color: white;
+  border: 2px solid $dark-blue-gray;
+  border-radius: 6px;
+  margin: 0.5rem;
+}
+
+.contribution__heading {
+  color: white;
+  padding: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background-color: $dark-blue-gray;
+}
+
+.button__group {
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  font-family: $font-primary;
+  color: $accent-blue;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border: solid 1.5px $accent-blue;
+}
+
+.button:hover {
+  background-color: $light-bg-blue;
+  cursor: pointer;
+}
+
+.button--left {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: none;
+  margin-left: 0.5rem;
+}
+
+.button--right {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-left: none;
+}
+
+.button--allocate {
+  color: white;
+  background-color: $confirm-green;
+  border: none;
+  border: solid 1.5px $confirm-green;
+  border-radius: 3px;
+}
+
+.button--allocate:hover {
+  background-color: $dark-green;
+  border: solid 1.5px $dark-green;
+}
+
+.input__adornment {
+  display: inline;
+  border: solid 1px $gray;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}

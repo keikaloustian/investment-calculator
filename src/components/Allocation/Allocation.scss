@@ -1,0 +1,16 @@
+@use "../../../abstracts/variables" as *;
+
+.allocation {
+  background-color: white;
+  border: 2px solid $dark-blue-gray;
+  border-radius: 6px;
+  margin: 0.5rem;
+}
+
+.allocation__heading {
+  color: white;
+  padding: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background-color: $dark-blue-gray;
+}
