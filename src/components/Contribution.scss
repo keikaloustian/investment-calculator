@@ -15,12 +15,16 @@
   background-color: $dark-blue-gray;
 }
 
+.button__group {
+  margin-bottom: 1.5rem;
+}
+
 .button {
+  font-family: $font-primary;
   color: $accent-blue;
   font-weight: 700;
-  padding: 0.25rem 0.5rem;
+  padding: 0.1rem 0.5rem;
   border: solid 1.5px $accent-blue;
-  margin-bottom: 2rem;
 }
 
 .button:hover {
@@ -39,6 +43,19 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   border-left: none;
+}
+
+.button--allocate {
+  color: white;
+  background-color: $confirm-green;
+  border: none;
+  border: solid 1.5px $confirm-green;
+  border-radius: 3px;
+}
+
+.button--allocate:hover {
+  background-color: $dark-green;
+  border: solid 1.5px $dark-green;
 }
 
 .input__adornment {
