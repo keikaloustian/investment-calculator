@@ -19,28 +19,27 @@
   margin-bottom: 1rem;
 }
 
-.button-group > button:hover {
-  background-color: $hover-bg-blue;
-  cursor: pointer;
-}
-
-@mixin button($color, $bgcolor, $padding-top: 0.1rem) {
+@mixin button($color, $bgcolor, $hovercolor, $padding-top: 0.1rem) {
   font-family: $font-primary;
   font-size: 0.83rem;
   color: $color;
   background-color: $bgcolor;
   font-weight: 700;
   padding: $padding-top 0.5rem;
+  &:hover {
+    background-color: $hovercolor;
+    cursor: pointer;
+  }
 }
 
 .button {
   &--middle {
-    @include button($accent-blue, $light-bg-blue);
+    @include button($accent-blue, $light-bg-blue, $hover-bg-blue);
     border: solid 1.5px $accent-blue;
   }
 
   &--left {
-    @include button($accent-blue, $light-bg-blue);
+    @include button($accent-blue, $light-bg-blue, $hover-bg-blue);
     border: solid 1.5px $accent-blue;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -49,24 +48,19 @@
   }
 
   &--right {
-    @include button($accent-blue, $light-bg-blue);
+    @include button($accent-blue, $light-bg-blue, $hover-bg-blue);
     border: solid 1.5px $accent-blue;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-left: none;
   }
-}
 
-.button--allocate {
-  @include button(white, $confirm-green, 3.1px);
-  border: none;
-  border-radius: 3px;
-  margin-left: auto;
-}
-
-.button--allocate:hover {
-  background-color: $dark-green;
-  cursor: pointer;
+  &--allocate {
+    @include button(white, $confirm-green, $dark-green, 3.1px);
+    border: none;
+    border-radius: 3px;
+    margin-left: auto;
+  }
 }
 
 .input-group {
