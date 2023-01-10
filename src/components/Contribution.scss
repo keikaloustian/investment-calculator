@@ -11,12 +11,12 @@
   color: white;
   padding: 0.5rem;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   background-color: $dark-blue-gray;
 }
 
 .button-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .button-group > button:hover {
@@ -26,6 +26,7 @@
 
 @mixin button($color, $bgcolor, $padding-top: 0.1rem) {
   font-family: $font-primary;
+  font-size: 0.83rem;
   color: $color;
   background-color: $bgcolor;
   font-weight: 700;
@@ -60,6 +61,7 @@
   @include button(white, $confirm-green, 3.1px);
   border: none;
   border-radius: 3px;
+  margin-left: auto;
 }
 
 .button--allocate:hover {
@@ -67,9 +69,33 @@
   cursor: pointer;
 }
 
+.input-group {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .input-group__adornment {
-  display: inline;
+  text-align: center;
+  padding: 0.1rem 0.3rem;
   border: solid 1px $gray;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+  border-right: none;
+  font-size: 0.83rem;
+}
+
+.input-group__input {
+  height: 20.187px;
+  // width: auto;
+  font-size: 0.83rem;
+  padding-left: 0.3rem;
+  border-style: none; //unset browser default
+  border: 1px $gray solid;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  width: 126px;
+  // max-width: 400px;
 }
