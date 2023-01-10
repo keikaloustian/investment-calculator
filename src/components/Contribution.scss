@@ -19,6 +19,11 @@
   margin-bottom: 1.5rem;
 }
 
+.button-group > button:hover {
+  background-color: $hover-bg-blue;
+  cursor: pointer;
+}
+
 @mixin button($color, $bgcolor, $padding-top: 0.1rem) {
   font-family: $font-primary;
   color: $color;
@@ -27,31 +32,28 @@
   padding: $padding-top 0.5rem;
 }
 
-// .button:hover {
-//   background-color: $hover-bg-blue;
-//   cursor: pointer;
-// }
+.button {
+  &--middle {
+    @include button($accent-blue, $light-bg-blue);
+    border: solid 1.5px $accent-blue;
+  }
 
-.button--middle {
-  @include button($accent-blue, $light-bg-blue);
-  border: solid 1.5px $accent-blue;
-}
+  &--left {
+    @include button($accent-blue, $light-bg-blue);
+    border: solid 1.5px $accent-blue;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: none;
+    margin-left: 0.5rem;
+  }
 
-.button--left {
-  @include button($accent-blue, $light-bg-blue);
-  border: solid 1.5px $accent-blue;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-right: none;
-  margin-left: 0.5rem;
-}
-
-.button--right {
-  @include button($accent-blue, $light-bg-blue);
-  border: solid 1.5px $accent-blue;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-left: none;
+  &--right {
+    @include button($accent-blue, $light-bg-blue);
+    border: solid 1.5px $accent-blue;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left: none;
+  }
 }
 
 .button--allocate {
@@ -62,9 +64,10 @@
 
 .button--allocate:hover {
   background-color: $dark-green;
+  cursor: pointer;
 }
 
-.amount__adornment {
+.input-group__adornment {
   display: inline;
   border: solid 1px $gray;
   border-top-left-radius: 3px;

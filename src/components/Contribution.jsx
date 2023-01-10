@@ -17,10 +17,10 @@ export default function Contribution({ amount, setAmount }) {
         </button>
       </div>
 
-      <div className="amount">
-        <div className="amount__adornment">$</div>
+      <div className="input-group">
+        <div className="input-group__adornment">$</div>
         <input
-          className="amount__input"
+          className="input-group__input"
           type={"number"}
           min={0}
           step={100}
