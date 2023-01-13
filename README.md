@@ -3,6 +3,8 @@ Web app for calculating how many shares of each asset in a portfolio (e.g. stock
   
 Price quotes (and therefore the calculation feature) are only available for assets in the US, Canada, UK, India and Russia due to limitations of the free API plan.  
   
+Design inspired by Questrade.  
+  
 ## Live Demo  
 https://investallocator.netlify.app/  
 
