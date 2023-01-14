@@ -1,0 +1,10 @@
+@use "../../../abstracts/variables" as *;
+
+.searchbar__control {
+  background-color: $input-green;
+  height: 20.187px;
+  font-size: 0.83rem;
+  margin: 0 0.5rem;
+  border: 1px $gray solid;
+  border-radius: 3px;
+}
