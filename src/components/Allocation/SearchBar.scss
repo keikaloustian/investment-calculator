@@ -2,7 +2,6 @@
 
 .searchbar__control {
   background-color: white;
-  height: 20.187px;
   font-size: 0.83rem;
   margin: 0 0.5rem;
   border: 1px $gray solid;
@@ -11,4 +10,9 @@
 
 .searchbar__value-container {
   padding: 0.125rem 0.5rem;
+}
+
+.searchbar__placeholder {
+  color: $gray;
+  margin: 0 0.125rem;
 }
