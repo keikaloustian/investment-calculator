@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AsyncSelect from "react-select/async";
+import "./SearchBar.scss";
 
 export default function SearchBar({ assets, setAssets }) {
   const [error, setError] = useState(false);
@@ -50,6 +51,7 @@ export default function SearchBar({ assets, setAssets }) {
         isClearable
         noOptionsMessage={() => "No assets found"}
         unstyled
+        classNamePrefix={"searchbar"}
       />
       {error && <p>{error}</p>}
     </>
