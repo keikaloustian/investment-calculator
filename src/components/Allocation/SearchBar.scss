@@ -1,9 +1,12 @@
 @use "../../../abstracts/variables" as *;
 
+.searchbar {
+  margin: 0 0.5rem;
+}
+
 .searchbar__control {
   background-color: white;
   font-size: 0.83rem;
-  margin: 0 0.5rem;
   border: 1px $gray solid;
   border-radius: 3px;
 }
@@ -61,13 +64,8 @@
   color: $danger-red;
 }
 
-#react-select-3-listbox {
-  width: 97%;
-}
-
 .searchbar__menu {
   margin-top: 0.5rem;
-  margin-left: 0.5rem;
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);

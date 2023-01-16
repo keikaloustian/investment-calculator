@@ -42,6 +42,7 @@ export default function SearchBar({ assets, setAssets }) {
   return (
     <>
       <AsyncSelect
+        className="searchbar"
         placeholder={"Search assets"}
         value={assets}
         onChange={handleChange}
