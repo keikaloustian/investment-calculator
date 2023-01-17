@@ -13,7 +13,9 @@ export default function AssetList({ assets, setAssets, amount }) {
     // Provider that gives access to the remainder % of contribution be allocated
     <AllocationContext.Provider value={{ remainder, setRemainder }}>
       {/* <p>amount {amount}</p> */}
-      <p>remainder % {remainder}</p>
+      <p className="remainder-msg">
+        Remainder: {remainder}% of ${amount}
+      </p>
       {/* List of asset cards */}
       <ul className="asset-list">
         {assets.map((asset, index) => (
