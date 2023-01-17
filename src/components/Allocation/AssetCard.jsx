@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
 import { AllocationContext } from "./AssetList";
 import handleSlider from "../../helpers/handleSlider";
+import "./AssetCard.scss";
 
 export default function AssetCard({ data, amount }) {
   const { price, error } = useApiPrice(data.symbol, data.country);
@@ -11,7 +12,7 @@ export default function AssetCard({ data, amount }) {
   const { remainder, setRemainder } = useContext(AllocationContext);
 
   return (
-    <li>
+    <li className="asset-card">
       <span>SYMBOL {data.symbol} </span>
       <span>{data["instrument_name"]}</span>
       <span>EXCHANGE: {data.exchange} </span>
