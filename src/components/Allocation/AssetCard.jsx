@@ -18,35 +18,35 @@ export default function AssetCard({ data, amount }) {
       </span>
       <span className="asset-card__exchange">({data.exchange})</span>
       <span className="asset-card__instrument">{data["instrument_name"]}</span>
-      <span>Price: </span>
-      <span>{price ? price : "loading..."}</span>
-      <div>
-        <label>
-          Allocation (%)
-          {sliderValue}
-          <input
-            type={"range"}
-            min={0}
-            max={100}
-            value={sliderValue}
-            onInput={(event) =>
-              handleSlider(
-                event,
-                sliderValue,
-                remainder,
-                setRemainder,
-                setSliderValue
-              )
-            }
-          />
-        </label>
-        <span>Shares:</span>
-        {price && (
-          <span>
-            {Math.floor((amount * (sliderValue / 100)) / Number(price))}
-          </span>
-        )}
-      </div>
+      <span className="price__label">Price: </span>
+      <span className="price__price">{price ? price : "loading..."}</span>
+      <label className="allocation__label" for={`${data["instrument_name"]}`}>
+        {"Allocation: "}
+      </label>
+      <span className="allocation__percent">{`${sliderValue}%`}</span>
+      <input
+        id={`${data["instrument_name"]}`}
+        className="allocation__slider"
+        type={"range"}
+        min={0}
+        max={100}
+        value={sliderValue}
+        onInput={(event) =>
+          handleSlider(
+            event,
+            sliderValue,
+            remainder,
+            setRemainder,
+            setSliderValue
+          )
+        }
+      />
+      <span className="shares__label">Shares:</span>
+      {price && (
+        <span className="shares__shares">
+          {Math.floor((amount * (sliderValue / 100)) / Number(price))}
+        </span>
+      )}
       {error && <p>{error}</p>}
     </li>
   );
