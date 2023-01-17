@@ -32,7 +32,7 @@ export default function SearchBar({ assets, setAssets }) {
       // If an asset is selected more than once, it raises the unique id warning
       return parsed.data.map((asset) => ({
         value: asset,
-        label: `${asset.symbol}  ${asset["instrument_name"]}  ${asset.exchange}`,
+        label: `${asset.symbol} - ${asset["instrument_name"]} (${asset.exchange})`,
       }));
     } catch (error) {
       setError(error.message);
