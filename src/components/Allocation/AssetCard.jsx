@@ -13,36 +13,39 @@ export default function AssetCard({ data, amount }) {
 
   return (
     <li className="asset-card">
-      <span>SYMBOL {data.symbol} </span>
-      <span>{data["instrument_name"]}</span>
-      <span>EXCHANGE: {data.exchange} </span>
-      <span>PRICE: {price ? price : "loading..."}</span>
+      <span className="asset-card__ticker">
+        <b>{data.symbol}</b>
+      </span>
+      <span className="asset-card__exchange">({data.exchange})</span>
+      <span className="asset-card__instrument">{data["instrument_name"]}</span>
+      <span>Price: </span>
+      <span>{price ? price : "loading..."}</span>
       <div>
         <label>
           Allocation (%)
           {sliderValue}
-          <div>
-            <input
-              type={"range"}
-              min={0}
-              max={100}
-              value={sliderValue}
-              onInput={(event) =>
-                handleSlider(
-                  event,
-                  sliderValue,
-                  remainder,
-                  setRemainder,
-                  setSliderValue
-                )
-              }
-            />
-            <span>
-              SHARES:
-              {Math.floor((amount * (sliderValue / 100)) / Number(price))}
-            </span>
-          </div>
+          <input
+            type={"range"}
+            min={0}
+            max={100}
+            value={sliderValue}
+            onInput={(event) =>
+              handleSlider(
+                event,
+                sliderValue,
+                remainder,
+                setRemainder,
+                setSliderValue
+              )
+            }
+          />
         </label>
+        <span>Shares:</span>
+        {price && (
+          <span>
+            {Math.floor((amount * (sliderValue / 100)) / Number(price))}
+          </span>
+        )}
       </div>
       {error && <p>{error}</p>}
     </li>
