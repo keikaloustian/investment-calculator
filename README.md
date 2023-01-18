@@ -15,6 +15,8 @@ https://investallocator.netlify.app/
 * JavaScript fetch API and async-await syntax
 * Using third-party API's
 * Deploying on Netlify
+* CSS Grid
+* SASS
 * Protecting secrets using serverless functions / proxy server and build environment variables
 * https://httpstat.us - an "API" that generates all the different HTTP statuses and responses
 * https://github.com/public-apis/public-apis - a list of free API's
