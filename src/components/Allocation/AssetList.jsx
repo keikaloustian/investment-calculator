@@ -5,7 +5,7 @@ import "./AssetList.scss";
 // Context to manage remaining percent of funds to allocate
 export const AllocationContext = createContext();
 
-export default function AssetList({ assets, setAssets, amount }) {
+export default function AssetList({ assets, amount }) {
   // State to manage remaining percent of funds to allocate
   const [remainder, setRemainder] = useState(100);
 
