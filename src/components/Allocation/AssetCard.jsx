@@ -16,14 +16,21 @@ export default function AssetCard({ data, amount }) {
       <span className="asset-card__ticker">
         <b>{data.symbol}</b>
       </span>
+
       <span className="asset-card__exchange">({data.exchange})</span>
+
       <span className="asset-card__instrument">{data["instrument_name"]}</span>
+
       <span className="price__label">Price: </span>
+
       <span className="price__price">{price ? price : "loading..."}</span>
+
       <label className="allocation__label" for={`${data["instrument_name"]}`}>
         {"Allocation: "}
       </label>
+
       <span className="allocation__percent">{`${sliderValue}%`}</span>
+
       <input
         id={`${data["instrument_name"]}`}
         className="allocation__slider"
@@ -41,12 +48,12 @@ export default function AssetCard({ data, amount }) {
           )
         }
       />
+
       <span className="shares__label">Shares:</span>
-      {price && (
-        <span className="shares__shares">
-          {Math.floor((amount * (sliderValue / 100)) / Number(price))}
-        </span>
-      )}
+      <span className="shares__shares">
+        {price && Math.floor((amount * (sliderValue / 100)) / Number(price))}
+      </span>
+
       {error && <p>{error}</p>}
     </li>
   );
