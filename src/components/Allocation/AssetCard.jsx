@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
 import { AllocationContext } from "./AssetList";
 import handleSlider from "../../helpers/handleSlider";
+import "./AssetCard.scss";
 
 export default function AssetCard({ data, amount }) {
   const { price, error } = useApiPrice(data.symbol, data.country);
@@ -11,38 +12,48 @@ export default function AssetCard({ data, amount }) {
   const { remainder, setRemainder } = useContext(AllocationContext);
 
   return (
-    <li>
-      <span>SYMBOL {data.symbol} </span>
-      <span>{data["instrument_name"]}</span>
-      <span>EXCHANGE: {data.exchange} </span>
-      <span>PRICE: {price ? price : "loading..."}</span>
-      <div>
-        <label>
-          Allocation (%)
-          {sliderValue}
-          <div>
-            <input
-              type={"range"}
-              min={0}
-              max={100}
-              value={sliderValue}
-              onInput={(event) =>
-                handleSlider(
-                  event,
-                  sliderValue,
-                  remainder,
-                  setRemainder,
-                  setSliderValue
-                )
-              }
-            />
-            <span>
-              SHARES:
-              {Math.floor((amount * (sliderValue / 100)) / Number(price))}
-            </span>
-          </div>
-        </label>
-      </div>
+    <li className="asset-card">
+      <span className="asset-card__ticker">
+        <b>{data.symbol}</b>
+      </span>
+
+      <span className="asset-card__exchange">({data.exchange})</span>
+
+      <span className="asset-card__instrument">{data["instrument_name"]}</span>
+
+      <span className="price__label">Price: </span>
+
+      <span className="price__price">{price ? price : "loading..."}</span>
+
+      <label className="allocation__label" for={`${data["instrument_name"]}`}>
+        {"Allocation: "}
+      </label>
+
+      <span className="allocation__percent">{`${sliderValue}%`}</span>
+
+      <input
+        id={`${data["instrument_name"]}`}
+        className="allocation__slider"
+        type={"range"}
+        min={0}
+        max={100}
+        value={sliderValue}
+        onInput={(event) =>
+          handleSlider(
+            event,
+            sliderValue,
+            remainder,
+            setRemainder,
+            setSliderValue
+          )
+        }
+      />
+
+      <span className="shares__label">Shares:</span>
+      <span className="shares__shares">
+        {price && Math.floor((amount * (sliderValue / 100)) / Number(price))}
+      </span>
+
       {error && <p>{error}</p>}
     </li>
   );

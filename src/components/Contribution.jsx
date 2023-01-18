@@ -27,7 +27,7 @@ export default function Contribution({ amount, setAmount }) {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           ></input>
-          <button className="button--allocate">Allocate</button>
+          {/* <button className="button--allocate">Allocate</button> */}
         </div>
       </div>
     </section>

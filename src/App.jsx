@@ -5,7 +5,7 @@ import Allocation from "./components/Allocation";
 import Contribution from "./components/Contribution";
 
 function App() {
-  const [amount, setAmount] = useState(100);
+  const [amount, setAmount] = useState(1000);
   return (
     <>
       <main>

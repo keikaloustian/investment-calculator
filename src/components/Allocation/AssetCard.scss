@@ -1,0 +1,48 @@
+@use "../../../abstracts/variables" as *;
+
+.remainder-msg {
+  margin-left: 0.5rem;
+}
+
+.asset-card {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-areas:
+    "ticker exchange price__label allocation__label allocation__percent shares__label"
+    "instrument instrument price__price allocation__slider allocation__percent shares__shares";
+}
+
+.asset-card__ticker {
+  grid-area: ticker;
+}
+.asset-card__exchange {
+  grid-area: exchange;
+}
+.asset-card__instrument {
+  grid-area: instrument;
+}
+.price__label {
+  grid-area: price__label;
+}
+.price__price {
+  grid-area: price__price;
+}
+
+.allocation__label {
+  grid-area: allocation__label;
+}
+.allocation__percent {
+  grid-area: allocation__percent;
+}
+.allocation__slider {
+  grid-area: allocation__slider;
+}
+.shares__label {
+  grid-area: shares__label;
+  justify-self: center;
+}
+.shares__shares {
+  grid-area: shares__shares;
+  justify-self: center;
+}
