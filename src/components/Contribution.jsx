@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Contribution.scss";
 
 export default function Contribution({
@@ -6,6 +5,7 @@ export default function Contribution({
   setAmount,
   setAllocationVisible,
 }) {
+  // Click handler for Allocate button
   const toggleAllocationVisible = (event) => {
     event.preventDefault();
     setAllocationVisible(true);
