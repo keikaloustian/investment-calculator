@@ -1,7 +1,16 @@
 import { useState } from "react";
 import "./Contribution.scss";
 
-export default function Contribution({ amount, setAmount }) {
+export default function Contribution({
+  amount,
+  setAmount,
+  setAllocationVisible,
+}) {
+  const toggleAllocationVisible = (event) => {
+    event.preventDefault();
+    setAllocationVisible(true);
+  };
+
   return (
     <section className="contribution">
       <h1 className="contribution__heading">How much do you want to invest?</h1>
@@ -18,16 +27,23 @@ export default function Contribution({ amount, setAmount }) {
           </button>
         </div>
         <div className="input-group">
-          <span className="input-group__adornment">$</span>
-          <input
-            className="input-group__input"
-            type={"number"}
-            min={0}
-            step={100}
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          ></input>
-          {/* <button className="button--allocate">Allocate</button> */}
+          <form>
+            <span className="input-group__adornment">$</span>
+            <input
+              className="input-group__input"
+              type={"number"}
+              min={0}
+              step={100}
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            ></input>
+            <button
+              className="button--allocate"
+              onClick={toggleAllocationVisible}
+            >
+              Allocate
+            </button>
+          </form>
         </div>
       </div>
     </section>
