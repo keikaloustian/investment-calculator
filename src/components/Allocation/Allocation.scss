@@ -1,6 +1,17 @@
 @use "../../../abstracts/variables" as *;
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .allocation {
+  animation-name: fadeIn;
+  animation-duration: 0.25s;
   background-color: white;
   border: 2px solid $dark-blue-gray;
   border-radius: 6px;
