@@ -12,7 +12,6 @@ export default function AssetList({ assets, amount }) {
   return (
     // Provider that gives access to the remainder % of contribution be allocated
     <AllocationContext.Provider value={{ remainder, setRemainder }}>
-      {/* <p>amount {amount}</p> */}
       <p className="remainder-msg">
         You have <b>{remainder}%</b> of ${amount} left to allocate
       </p>
