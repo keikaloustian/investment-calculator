@@ -54,6 +54,7 @@ export default function SearchBar({ assets, setAssets }) {
         noOptionsMessage={() => "No assets found"}
         unstyled
         classNamePrefix={"searchbar"}
+        autoFocus
       />
     </>
   );

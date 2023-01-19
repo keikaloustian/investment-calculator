@@ -35,6 +35,7 @@ export default function Contribution({
             step={100}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            autoFocus
           ></input>
           <button
             className="button--allocate"
