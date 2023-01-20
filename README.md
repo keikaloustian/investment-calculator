@@ -10,7 +10,7 @@ https://investallocator.netlify.app/
   
 ## To-do List  
 - [ ] Update remainder % when an asset is removed
-- [ ] Style AssetCard
+- [ ] Finish styling AssetCard
 - [ ] Add rolling ticker tape widget across top  
   
 ## Further Ideas  
