@@ -7,6 +7,7 @@ export default function Contribution({
 }) {
   // Click handler for Allocate button
   const toggleAllocationVisible = (event) => {
+    event.preventDefault();
     setAllocationVisible(true);
   };
 
@@ -35,11 +36,7 @@ export default function Contribution({
           onChange={(event) => setAmount(event.target.value)}
           autoFocus
         ></input>
-        <button
-          className="button--allocate"
-          onClick={toggleAllocationVisible}
-          type="button"
-        >
+        <button className="button--allocate" onClick={toggleAllocationVisible}>
           Allocate
         </button>
       </form>
