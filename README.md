@@ -9,7 +9,8 @@ Design inspired by Questrade.
 https://investallocator.netlify.app/  
   
 ## To-do List  
-- [ ] Update remainder % when an asset is removed
+- [ ] Bug: remainder % not updating when asset is removed
+- [ ] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
 - [ ] Finish styling AssetCard
 - [ ] Add rolling ticker tape widget across top  
   
