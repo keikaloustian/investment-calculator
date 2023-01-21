@@ -25,7 +25,10 @@ export default function AssetCard({ data, amount }) {
 
       <span className="price__price">{price ? price : "loading..."}</span>
 
-      <label className="allocation__label" for={`${data["instrument_name"]}`}>
+      <label
+        className="allocation__label"
+        htmlFor={`${data["instrument_name"]}`}
+      >
         {"Allocation: "}
       </label>
 

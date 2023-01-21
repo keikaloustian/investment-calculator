@@ -1,5 +1,9 @@
 @use "../../../abstracts/variables" as *;
 
+.remainder-msg {
+  margin-left: 0.5rem;
+}
+
 .asset-list {
   padding-inline-start: 0;
   margin: 0 1rem;

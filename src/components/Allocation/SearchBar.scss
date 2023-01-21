@@ -85,6 +85,6 @@
   padding: 8px 10px;
 }
 
-.searchbar__option:hover {
+.searchbar__option--is-focused {
   background-color: $hover-bg-blue;
 }
