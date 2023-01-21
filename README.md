@@ -7,6 +7,15 @@ Design inspired by Questrade.
   
 ## Live Demo  
 https://investallocator.netlify.app/  
+  
+## To-do List  
+- [ ] Update remainder % when an asset is removed
+- [ ] Finish styling AssetCard
+- [ ] Add rolling ticker tape widget across top  
+  
+## Further Ideas  
+* Save contribution, asset selection and allocation in cookies to facilitate regular use
+* Filter already selected assets from search options
 
 ## Things I Learned
 * Vite
