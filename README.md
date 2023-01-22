@@ -32,6 +32,7 @@ https://investallocator.netlify.app/
 * Protecting secrets using serverless functions / proxy server and build environment variables
 * https://httpstat.us - an "API" that generates all the different HTTP statuses and responses
 * https://github.com/public-apis/public-apis - a list of free API's
+* https://danielstern.ca/range.css/#/ - a CSS generator for range inputs
 
 ## Finished Product  
 ## Dependencies
