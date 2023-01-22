@@ -23,15 +23,19 @@
   grid-area: ticker;
   color: $dark-blue-gray;
 }
+
 .asset-card__exchange {
   grid-area: exchange;
 }
+
 .asset-card__instrument {
   grid-area: instrument;
 }
+
 .price__label {
   grid-area: price__label;
 }
+
 .price__price {
   grid-area: price__price;
 }
@@ -39,14 +43,17 @@
 .allocation__label {
   grid-area: allocation__label;
 }
+
 .allocation__percent {
   grid-area: allocation__percent;
 }
+
 .allocation__slider {
   grid-area: allocation__slider;
   accent-color: $confirm-green;
   width: 120px;
 }
+
 .shares__label {
   grid-area: shares__label;
   justify-self: center;
