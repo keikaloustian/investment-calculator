@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import "./App.scss";
 
@@ -8,6 +9,13 @@ function App() {
   const [amount, setAmount] = useState(1000);
   // State to show/hide allocation section
   const [allocationVisible, setAllocationVisible] = useState(false);
+
+  useEffect(() => {
+    finageTickerTape.symbols(["btcusd:crypto", "eurusd:forex"]);
+    finageTickerTape.colors(["", ""]);
+    finageTickerTape.theme(["dark-night"]);
+    finageTickerTape.initWidget();
+  }, []);
 
   return (
     <>
