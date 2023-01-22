@@ -12,11 +12,24 @@ function App() {
   return (
     <>
       <main>
+        <div class="finage-ticker-tape-item"> </div>
+        <script
+          type="text/javascript"
+          src="https://cdn.finage.co.uk/ticker-tape/main.js"
+        ></script>
+        <script>
+          finageTickerTape.symbols(["RY:stock"]);
+          finageTickerTape.colors(["",""]); //background color, text color
+          finageTickerTape.theme(["dark-night"]); //pearl-white, midnight,
+          dark-night finageTickerTape.initWidget();
+        </script>
+
         <Contribution
           amount={amount}
           setAmount={setAmount}
           setAllocationVisible={setAllocationVisible}
         ></Contribution>
+
         {allocationVisible && <Allocation amount={amount}></Allocation>}
       </main>
     </>
