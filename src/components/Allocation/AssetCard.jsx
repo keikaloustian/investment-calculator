@@ -28,8 +28,6 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
         {"Allocation: "}
       </label>
 
-      <span className="allocation__percent">{`${sliderValue}%`}</span>
-
       <input
         id={`${data["instrument_name"]}`}
         className="allocation__slider"
@@ -41,12 +39,13 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           handleSlider(
             event,
             sliderValue,
+            setSliderValue,
             remainder,
-            setRemainder,
-            setSliderValue
+            setRemainder
           )
         }
       />
+      <span className="allocation__percent">{`${sliderValue}%`}</span>
 
       <span className="shares__label">Shares:</span>
       <span className="shares__shares">
