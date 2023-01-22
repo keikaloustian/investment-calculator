@@ -15,13 +15,15 @@ https://investallocator.netlify.app/
 - [ ] Add rolling ticker tape widget across top  
   
 ## Further Ideas  
-* Save contribution, asset selection and allocation in cookies to facilitate regular use
+* Save contribution, asset selection and allocation (in cookies?) to facilitate repeated use
 * Filter already selected assets from search options
 
-## Things I Learned
+## Things I Used / Learned About
 * Vite
-* react-select (mainly the AsyncSelect component)
-* useContext hook
+* ~~react-select AsyncSelect component~~
+* ~~useContext hook~~
+* ~~useRef() hook~~
+* stale closures in useEffect() 
 * JavaScript fetch API and async-await syntax
 * Using third-party API's
 * Deploying on Netlify
