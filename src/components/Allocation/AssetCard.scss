@@ -12,7 +12,7 @@
   grid-template-areas:
     "ticker exchange price__label allocation__label none shares__label"
     "instrument instrument price__price allocation__slider allocation__percent shares__shares";
-  grid-template-columns: auto auto 80px 135px 40.672px min-content;
+  grid-template-columns: auto auto 80px 135px 50px min-content;
 }
 
 .asset-card:hover {
