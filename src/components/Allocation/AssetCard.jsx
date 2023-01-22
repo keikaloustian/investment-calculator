@@ -1,15 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
-import { AllocationContext } from "./AssetList";
 import handleSlider from "../../helpers/handleSlider";
 import "./AssetCard.scss";
 
-export default function AssetCard({ data, amount }) {
+export default function AssetCard({ data, amount, remainder, setRemainder }) {
   const { price, error } = useApiPrice(data.symbol, data.country);
   const [sliderValue, setSliderValue] = useState(0);
-
-  // Access AllocationContext provided by AssetList
-  const { remainder, setRemainder } = useContext(AllocationContext);
 
   return (
     <li className="asset-card">
