@@ -41,9 +41,9 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           handleSlider(
             event,
             sliderValue,
+            setSliderValue,
             remainder,
-            setRemainder,
-            setSliderValue
+            setRemainder
           )
         }
       />
