@@ -19,9 +19,12 @@ function App() {
         ></script>
         <script>
           finageTickerTape.symbols(["RY:stock"]);
-          finageTickerTape.colors(["",""]); //background color, text color
-          finageTickerTape.theme(["dark-night"]); //pearl-white, midnight,
-          dark-night finageTickerTape.initWidget();
+          {/*background color, text color */}
+          finageTickerTape.colors(["",""]);
+          {/*pearl-white, midnight, dark-night*/}
+          finageTickerTape.theme(["dark-night"]);
+          {/* initializer */}
+          finageTickerTape.initWidget();
         </script>
 
         <Contribution
