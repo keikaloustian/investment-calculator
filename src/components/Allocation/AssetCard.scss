@@ -1,16 +1,28 @@
 @use "../../../abstracts/variables" as *;
 
+.remainder-msg {
+  margin-left: 0.5rem;
+}
+
 .asset-card {
   list-style: none;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  // margin: 0.5rem 0;
   display: grid;
   grid-template-areas:
-    "ticker exchange price__label allocation__label allocation__percent shares__label"
+    "ticker exchange price__label allocation__label none shares__label"
     "instrument instrument price__price allocation__slider allocation__percent shares__shares";
+  grid-template-columns: auto auto auto auto 40.672px auto;
+  column-gap: 0.25rem;
+}
+
+.asset-card:hover {
+  background-color: $light-bg-blue;
 }
 
 .asset-card__ticker {
   grid-area: ticker;
+  color: $dark-blue-gray;
 }
 .asset-card__exchange {
   grid-area: exchange;
@@ -33,6 +45,8 @@
 }
 .allocation__slider {
   grid-area: allocation__slider;
+  accent-color: $confirm-green;
+  width: 120px;
 }
 .shares__label {
   grid-area: shares__label;
