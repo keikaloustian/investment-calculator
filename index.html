@@ -8,61 +8,61 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InvestCalc</title>
-    <script
-"use strict";
-var finageTickerTape =
-  finageTickerTape ||
-  (function() {
-    var symbols = {};
-    var colors = {};
-    var theme = "";
-    return {
-      symbols: function(Args) {
-        symbols = Args;
-      },
-      colors: function(Args) {
-        colors = Args;
-      },
-      theme: function(Arg) {
-        theme = Arg;
-      },
-      initWidget: function() {
-        loadTickerTapeFrame(symbols, colors, theme);
+    <script>
+      "use strict";
+      var finageTickerTape =
+        finageTickerTape ||
+        (function () {
+          var symbols = {};
+          var colors = {};
+          var theme = "";
+          return {
+            symbols: function (Args) {
+              symbols = Args;
+            },
+            colors: function (Args) {
+              colors = Args;
+            },
+            theme: function (Arg) {
+              theme = Arg;
+            },
+            initWidget: function () {
+              loadTickerTapeFrame(symbols, colors, theme);
+            },
+          };
+        })();
+      function loadTickerTapeFrame(symbols, colorList, theme) {
+        var n = window.location.hostname;
+        var colors = "";
+        for (var i = 0; i < colorList.length; i += 1) {
+          colors += colorList[i].split("#").join("") + ",";
+        }
+        colors = colors.slice(0, -1);
+        var ac = document.querySelectorAll(".finage-ticker-tape-item");
+        for (var i = 0; i < ac.length; i++) {
+          var o = document.createElement("iframe");
+          o.src =
+            "https://widget.finage.co.uk/ticker-tape?symbols=" +
+            symbols +
+            "&colors=" +
+            colors +
+            "&theme=" +
+            theme +
+            "&host=" +
+            n;
+          o.style.width = "100%";
+          o.style.height = "50px";
+          o.frameBorder = "none";
+          o.scrolling = "no";
+          ac[i].style.height = "50px";
+          ac[i].style.width = "100%";
+          ac[i].style.display = "inline-block";
+          if (ac[i] != null) {
+            ac[i].appendChild(o);
+          }
+        }
       }
-    };
-  })();
-function loadTickerTapeFrame(symbols, colorList, theme) {
-  var n = window.location.hostname;
-  var colors = "";
-  for (var i = 0; i < colorList.length; i += 1) {
-    colors += colorList[i].split("#").join("") + ",";
-  }
-  colors = colors.slice(0, -1);
-  var ac = document
-    .querySelectorAll(".finage-ticker-tape-item");
-  for(var i = 0; i < ac.length; i++) {
-    var o = document.createElement("iframe");
-    o.src =
-      "https://widget.finage.co.uk/ticker-tape?symbols=" +
-      symbols +
-      "&colors=" +
-      colors +
-      "&theme=" +
-      theme +
-      "&host=" +
-      n;
-    o.style.width = "100%";
-    o.style.height = "50px";
-    o.frameBorder = "none";
-    o.scrolling = "no";
-    ac[i].style.height = "50px";
-    ac[i].style.width = "100%";
-    ac[i].style.display = "inline-block";
-    if(ac[i] != null) { ac[i].appendChild(o); }
-  }
-
-}
-    ></script>
+    </script>
     <script>
       finageTickerTape.symbols(["btcusd:crypto", "eurusd:forex"]);
       finageTickerTape.colors(["", ""]);

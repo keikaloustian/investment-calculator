@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <main>
-        <div class="finage-ticker-tape-item"> </div>
+        <div className="finage-ticker-tape-item"> </div>
 
         <Contribution
           amount={amount}
