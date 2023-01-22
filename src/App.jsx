@@ -13,18 +13,15 @@ function App() {
     <>
       <main>
         <div class="finage-ticker-tape-item"> </div>
+
         <script
           type="text/javascript"
           src="https://cdn.finage.co.uk/ticker-tape/main.js"
         ></script>
         <script>
-          finageTickerTape.symbols(["RY:stock"]);
-          {/*background color, text color */}
+          finageTickerTape.symbols(["btcusd:crypto", "eurusd:forex"]);
           finageTickerTape.colors(["",""]);
-          {/*pearl-white, midnight, dark-night*/}
-          finageTickerTape.theme(["dark-night"]);
-          {/* initializer */}
-          finageTickerTape.initWidget();
+          finageTickerTape.theme(["dark-night"]); finageTickerTape.initWidget();
         </script>
 
         <Contribution
