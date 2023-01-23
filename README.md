@@ -25,7 +25,7 @@ https://investallocator.netlify.app/
 * ~~useRef() hook~~
 * stale closures in useEffect() 
 * JavaScript fetch API and async-await syntax
-* Using third-party API's
+* Using third-party API's and widgets
 * Deploying on Netlify
 * CSS Grid
 * SASS
