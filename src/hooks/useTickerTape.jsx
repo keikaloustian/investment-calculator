@@ -6,8 +6,7 @@ export default function useTickerTape() {
       "cadusd:forex",
       "SHOP:stock",
       "TD:stock",
-      // BMO price showing as 0 -Infinity %
-      // "BMO:stock",
+      "BMO:stock",
       "AAPL:stock",
       "MSFT:stock",
       "GOOGL:stock",
