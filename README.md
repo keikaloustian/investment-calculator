@@ -10,7 +10,8 @@ https://investallocator.netlify.app/
   
 ## To-do List  
 - [ ] Bug: remainder % not updating when asset is removed
-- [ ] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
+- [ ] Bug?: ticker tape shows "Access Denied!" when cold starting the page from time to time
+- [x] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
 - [ ] Finish styling AssetCard
 - [x] Add rolling ticker tape widget across top  
   
