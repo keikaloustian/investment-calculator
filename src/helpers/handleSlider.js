@@ -10,7 +10,8 @@ export default function handleSlider(
 
   // Handle increase (slide to right)
   if (newValue > sliderValue) {
-    if (remainder > 0) {
+    const increase = newValue - sliderValue;
+    if (increase <= remainder) {
       setRemainder((prev) => prev - (newValue - sliderValue));
       setSliderValue(newValue);
     }
