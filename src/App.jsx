@@ -11,6 +11,7 @@ function App() {
   // State to show/hide allocation section
   const [allocationVisible, setAllocationVisible] = useState(false);
 
+  // Hook to initialize ticker tape widget
   useTickerTape();
 
   return (
