@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import "./App.scss";
+import useTickerTape from "./hooks/useTickerTape";
 
 import Allocation from "./components/Allocation";
 import Contribution from "./components/Contribution";
@@ -10,12 +11,7 @@ function App() {
   // State to show/hide allocation section
   const [allocationVisible, setAllocationVisible] = useState(false);
 
-  useEffect(() => {
-    finageTickerTape.symbols(["btcusd:crypto", "eurusd:forex"]);
-    finageTickerTape.colors(["", ""]);
-    finageTickerTape.theme(["dark-night"]);
-    finageTickerTape.initWidget();
-  }, []);
+  useTickerTape();
 
   return (
     <>
