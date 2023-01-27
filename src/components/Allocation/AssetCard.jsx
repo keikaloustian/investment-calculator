@@ -2,6 +2,7 @@ import { useState } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
 import handleSlider from "../../helpers/handleSlider";
 import displayPrice from "../../helpers/displayPrice";
+import LoadingDots from "./LoadingDots";
 import "./AssetCard.scss";
 
 export default function AssetCard({ data, amount, remainder, setRemainder }) {
@@ -20,7 +21,10 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
 
       <span className="price__label">Price: </span>
 
-      <span className="price__price">{displayPrice(price)}</span>
+      <span className="price__price">
+        {displayPrice(price, <LoadingDots />)}
+        {/* <LoadingDots></LoadingDots> */}
+      </span>
 
       <label
         className="allocation__label"

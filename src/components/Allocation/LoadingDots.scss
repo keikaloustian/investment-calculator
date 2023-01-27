@@ -1,0 +1,43 @@
+@use "../../../abstracts/variables" as *;
+
+$dot-diameter: 6px;
+$dot-radius: $dot-diameter / 2;
+$blink-duration: 0.5s;
+
+.loader {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 6px;
+  display: flex;
+}
+
+.loader__dot {
+  display: inline-block;
+  margin: 0 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: $dot-radius;
+  background-color: $dark-blue-gray;
+  animation-name: blink;
+  animation-duration: $blink-duration;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.loader :nth-child(2) {
+  animation-delay: $blink-duration * 0.33;
+}
+
+.loader :nth-child(3) {
+  animation-delay: $blink-duration * 0.66;
+}
+
+@keyframes blink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.2);
+  }
+}
