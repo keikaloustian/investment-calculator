@@ -19,7 +19,9 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
 
       <span className="price__label">Price: </span>
 
-      <span className="price__price">{price ? price : "loading..."}</span>
+      <span className="price__price">
+        {price ? price.toFixed(2) : "loading..."}
+      </span>
 
       <label
         className="allocation__label"
