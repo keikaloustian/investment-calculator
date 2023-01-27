@@ -1,6 +1,6 @@
-export default function displayPrice(price) {
+export default function displayPrice(price, loader) {
   if (!price) {
-    return "loading...";
+    return loader;
   }
   if (price === "unavailable") {
     return "unavailable";
