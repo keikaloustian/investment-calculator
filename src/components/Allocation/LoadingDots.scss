@@ -19,7 +19,6 @@ $blink-duration: 0.5s;
   height: 6px;
   border-radius: $dot-radius;
   background-color: $dark-blue-gray;
-  // opacity: 0.75;
   animation-name: blink;
   animation-duration: $blink-duration;
   animation-iteration-count: infinite;
