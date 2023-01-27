@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
 import handleSlider from "../../helpers/handleSlider";
+import displayPrice from "../../helpers/displayPrice";
 import "./AssetCard.scss";
 
 export default function AssetCard({ data, amount, remainder, setRemainder }) {
@@ -19,9 +20,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
 
       <span className="price__label">Price: </span>
 
-      <span className="price__price">
-        {price ? price.toFixed(2) : "loading..."}
-      </span>
+      <span className="price__price">{displayPrice(price)}</span>
 
       <label
         className="allocation__label"
@@ -46,12 +45,15 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
             setRemainder
           )
         }
+        disabled={price === "unavailable"}
       />
       <span className="allocation__percent">{`${sliderValue}%`}</span>
 
       <span className="shares__label">Shares:</span>
       <span className="shares__shares">
-        {price && Math.floor((amount * (sliderValue / 100)) / Number(price))}
+        {price &&
+          price !== "unavailable" &&
+          Math.floor((amount * (sliderValue / 100)) / Number(price))}
       </span>
 
       {error && <p>{error}</p>}
