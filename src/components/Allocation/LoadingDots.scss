@@ -1,0 +1,44 @@
+@use "../../../abstracts/variables" as *;
+
+$dot-diameter: 6px;
+$dot-radius: $dot-diameter / 2;
+$blink-duration: 1.2s;
+
+.loader {
+  margin: 0;
+  padding: 0;
+}
+
+.loader__dot {
+  margin: 0 2px;
+  width: $dot-diameter;
+  height: $dot-diameter;
+  display: inline-block;
+  border-radius: $dot-radius;
+  background-color: $accent-blue;
+  opacity: 0.75;
+  animation-name: blink;
+  animation-duration: $blink-duration;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes blink {
+  from {
+    width: $dot-diameter;
+    height: $dot-diameter;
+  }
+  to {
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
