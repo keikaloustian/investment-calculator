@@ -14,6 +14,7 @@ https://investallocator.netlify.app/
 - [x] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
 - [ ] Finish styling AssetCard
 - [x] Add rolling ticker tape widget across top  
+- [x] Create loading indicator to be displayed while asset price is being fetched  
   
 ## Further Ideas  
 * Save contribution, asset selection and allocation (in cookies?) to facilitate repeated use
