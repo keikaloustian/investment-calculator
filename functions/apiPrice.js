@@ -1,6 +1,6 @@
 /*
 It is not necessary to require dotenv because it is already integrated into
-the local Netlify dev environment / the Netlify deployment environment.
+the local Netlify dev environment and the Netlify deployment environment.
 The local .env file needs to be included in the .gitignore file and the same
 variables need to be defined in the Netlify Build environment variables
 */
@@ -19,8 +19,12 @@ const handler = async (event) => {
   // Capture ticker and exchange from request
   const { symbol, country } = event.queryStringParameters;
 
-  // Lookup url code for country where to which asset belongs
+  // Lookup url code for country to which asset belongs
   const market = countryCodes[country];
+
+  if (!market) {
+    return { statusCode: 200, body: JSON.stringify({ price: "unavailable" }) };
+  }
 
   try {
     const response = await fetch(
