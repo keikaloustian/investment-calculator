@@ -23,6 +23,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
 
       <span className="price__price">
         {displayPrice(price, <LoadingDots />)}
+        {/* <LoadingDots></LoadingDots> */}
       </span>
 
       <label
