@@ -6,6 +6,7 @@ import LoadingDots from "./LoadingDots";
 import "./AssetCard.scss";
 
 export default function AssetCard({ data, amount, remainder, setRemainder }) {
+  // Destructure price and error message from custom hook for fetching asset price
   const { price, error } = useApiPrice(data.symbol, data.country);
   const [sliderValue, setSliderValue] = useState(0);
 
@@ -23,7 +24,6 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
 
       <span className="price__price">
         {displayPrice(price, error, <LoadingDots />)}
-        {/* <LoadingDots></LoadingDots> */}
       </span>
 
       <label
