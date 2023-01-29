@@ -7,10 +7,9 @@
 .asset-card {
   list-style: none;
   padding: 0.5rem 1rem;
-  // margin: 0.5rem 0;
   display: grid;
   grid-template-areas:
-    "ticker exchange price__label allocation__label none shares__label"
+    "ticker exchange price__label allocation__label . shares__label"
     "instrument instrument price__price allocation__slider allocation__percent shares__shares"
     "error-message error-message error-message error-message error-message error-message ";
   grid-template-columns: auto auto 105px 120px 45px min-content;
@@ -23,6 +22,7 @@
 .asset-card__ticker {
   grid-area: ticker;
   color: $dark-blue-gray;
+  margin-right: 0.25rem;
 }
 
 .asset-card__exchange {
@@ -35,15 +35,18 @@
 
 .price__label {
   grid-area: price__label;
+  justify-self: center;
 }
 
 .price__price {
   grid-area: price__price;
+  justify-self: center;
   align-self: center;
 }
 
 .price__unavailable {
   color: $danger-red;
+  justify-self: center;
 }
 
 .price__error {
@@ -58,6 +61,7 @@
 
 .allocation__percent {
   grid-area: allocation__percent;
+  align-self: center;
 }
 
 .allocation__slider {
@@ -73,5 +77,42 @@
 
 .shares__shares {
   grid-area: shares__shares;
+  align-self: center;
   justify-self: center;
+}
+
+// @media screen and (max-width: 843px) {
+//   .asset-card {
+//     grid-template-areas:
+//       "ticker exchange price__label "
+//       "instrument instrument price__price "
+//       "allocation__label . shares__label"
+//       " allocation__slider allocation__percent shares__shares"
+//       "error-message error-message error-message ";
+
+//     grid-template-columns: auto auto 105px;
+//     // row-gap: 0.25rem;
+//   }
+
+// }
+
+@media screen and (max-width: 500px) {
+  .asset-card {
+    grid-template-areas:
+      "ticker exchange . ."
+      "instrument instrument instrument instrument"
+      "price__label price__price . ."
+      "allocation__label allocation__label . shares__label "
+      " allocation__slider allocation__slider allocation__percent shares__shares";
+
+    grid-template-columns: auto;
+    grid-template-columns: 60px 60px 45px;
+  }
+
+  .price__label,
+  .price__price,
+  .price__unavailable {
+    justify-self: start;
+    margin: 0.25rem 0;
+  }
 }
