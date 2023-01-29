@@ -9,6 +9,7 @@ main {
   width: clamp(300px, 60%, 650px);
   margin-inline: auto;
   height: 100vh;
+  overflow: auto;
 }
 
 body {
