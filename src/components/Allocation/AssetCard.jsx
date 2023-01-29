@@ -27,7 +27,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           price,
           error,
           <LoadingDots />,
-          <b className="unavailable">unavailable</b>
+          <b className="price__unavailable">unavailable</b>
         )}
       </span>
 
@@ -65,7 +65,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           Math.floor((amount * (sliderValue / 100)) / Number(price))}
       </span>
 
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </li>
   );
 }
