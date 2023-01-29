@@ -41,7 +41,7 @@ export default function SearchBar({ assets, setAssets }) {
 
   return (
     <>
-      {error && <p className="error">{error}</p>}
+      {error && <p className="search-error">{error}</p>}
       <AsyncSelect
         className="searchbar"
         placeholder={"Search assets"}
