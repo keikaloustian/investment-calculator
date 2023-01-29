@@ -23,7 +23,12 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
       <span className="price__label">Price: </span>
 
       <span className="price__price">
-        {displayPrice(price, error, <LoadingDots />)}
+        {displayPrice(
+          price,
+          error,
+          <LoadingDots />,
+          <b className="unavailable">unavailable</b>
+        )}
       </span>
 
       <label

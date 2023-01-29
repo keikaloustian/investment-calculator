@@ -1,4 +1,4 @@
-export default function displayPrice(price, error, loader) {
+export default function displayPrice(price, error, loader, unavailable) {
   if (!price && !error) {
     return loader;
   }
@@ -6,7 +6,7 @@ export default function displayPrice(price, error, loader) {
     return null;
   }
   if (price === "unavailable") {
-    return "unavailable";
+    return unavailable;
   }
   return price.toFixed(2);
 }
