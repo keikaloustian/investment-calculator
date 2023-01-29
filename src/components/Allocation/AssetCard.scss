@@ -11,8 +11,9 @@
   display: grid;
   grid-template-areas:
     "ticker exchange price__label allocation__label none shares__label"
-    "instrument instrument price__price allocation__slider allocation__percent shares__shares";
-  grid-template-columns: auto auto 80px 135px 50px min-content;
+    "instrument instrument price__price allocation__slider allocation__percent shares__shares"
+    "error-message error-message error-message error-message error-message error-message ";
+  grid-template-columns: auto auto 105px 120px 45px min-content;
 }
 
 .asset-card:hover {
@@ -41,6 +42,10 @@
   align-self: center;
 }
 
+.price__unavailable {
+  color: $danger-red;
+}
+
 .allocation__label {
   grid-area: allocation__label;
 }
@@ -52,14 +57,21 @@
 .allocation__slider {
   grid-area: allocation__slider;
   accent-color: $confirm-green;
-  width: 120px;
+  width: 110px;
 }
 
 .shares__label {
   grid-area: shares__label;
   justify-self: center;
 }
+
 .shares__shares {
   grid-area: shares__shares;
   justify-self: center;
+}
+
+.asset-card__price-error {
+  margin: 0;
+  grid-area: error-message;
+  color: $danger-red;
 }
