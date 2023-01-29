@@ -6,6 +6,7 @@ import LoadingDots from "./LoadingDots";
 import "./AssetCard.scss";
 
 export default function AssetCard({ data, amount, remainder, setRemainder }) {
+  // Destructure price and error message from custom hook for fetching asset price
   const { price, error } = useApiPrice(data.symbol, data.country);
   const [sliderValue, setSliderValue] = useState(0);
 
@@ -22,8 +23,12 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
       <span className="price__label">Price: </span>
 
       <span className="price__price">
-        {displayPrice(price, <LoadingDots />)}
-        {/* <LoadingDots></LoadingDots> */}
+        {displayPrice(
+          price,
+          error,
+          <LoadingDots />,
+          <b className="price__unavailable">unavailable</b>
+        )}
       </span>
 
       <label
@@ -60,7 +65,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           Math.floor((amount * (sliderValue / 100)) / Number(price))}
       </span>
 
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </li>
   );
 }
