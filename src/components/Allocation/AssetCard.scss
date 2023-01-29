@@ -46,6 +46,12 @@
   color: $danger-red;
 }
 
+.price__error {
+  margin: 0;
+  grid-area: error-message;
+  color: $danger-red;
+}
+
 .allocation__label {
   grid-area: allocation__label;
 }
@@ -68,10 +74,4 @@
 .shares__shares {
   grid-area: shares__shares;
   justify-self: center;
-}
-
-.asset-card__price-error {
-  margin: 0;
-  grid-area: error-message;
-  color: $danger-red;
 }

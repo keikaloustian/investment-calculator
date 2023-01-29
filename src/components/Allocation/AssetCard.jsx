@@ -54,7 +54,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
             setRemainder
           )
         }
-        disabled={price === "unavailable"}
+        disabled={price === "unavailable" || error}
       />
       <span className="allocation__percent">{`${sliderValue}%`}</span>
 
@@ -65,7 +65,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           Math.floor((amount * (sliderValue / 100)) / Number(price))}
       </span>
 
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className="price__error">{error}</p>}
     </li>
   );
 }
