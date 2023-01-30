@@ -15,10 +15,6 @@
   grid-template-columns: auto auto 105px 120px 45px min-content;
 }
 
-.asset-card:hover {
-  background-color: $light-bg-blue;
-}
-
 .asset-card__ticker {
   grid-area: ticker;
   color: $dark-blue-gray;
@@ -31,22 +27,20 @@
 
 .asset-card__instrument {
   grid-area: instrument;
+  margin-right: 1rem;
 }
 
 .price__label {
   grid-area: price__label;
-  justify-self: center;
 }
 
 .price__price {
   grid-area: price__price;
-  justify-self: center;
   align-self: center;
 }
 
 .price__unavailable {
   color: $danger-red;
-  justify-self: center;
 }
 
 .price__error {
@@ -81,31 +75,33 @@
   justify-self: center;
 }
 
-// @media screen and (max-width: 843px) {
-//   .asset-card {
-//     grid-template-areas:
-//       "ticker exchange price__label "
-//       "instrument instrument price__price "
-//       "allocation__label . shares__label"
-//       " allocation__slider allocation__percent shares__shares"
-//       "error-message error-message error-message ";
+@media screen and (min-width: 501px) and (max-width: 850px) {
+  .asset-card {
+    grid-template-areas:
+      "ticker exchange price__label"
+      "instrument instrument price__price"
+      "allocation__label . shares__label"
+      "allocation__slider allocation__percent shares__shares";
 
-//     grid-template-columns: auto auto 105px;
-//     // row-gap: 0.25rem;
-//   }
+    grid-template-columns: 120px 1fr 2fr;
+  }
 
-// }
+  .price__label,
+  .price__price,
+  .price__unavailable {
+    justify-self: center;
+  }
+}
 
 @media screen and (max-width: 500px) {
   .asset-card {
     grid-template-areas:
-      "ticker exchange . ."
+      "ticker . exchange ."
       "instrument instrument instrument instrument"
       "price__label price__price . ."
       "allocation__label allocation__label . shares__label "
       " allocation__slider allocation__slider allocation__percent shares__shares";
 
-    grid-template-columns: auto;
     grid-template-columns: 60px 60px 45px;
   }
 

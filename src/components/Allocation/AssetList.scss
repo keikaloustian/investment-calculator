@@ -7,4 +7,12 @@
 .asset-list {
   padding-inline-start: 0;
   margin-bottom: 0.5rem;
+
+  > :nth-child(odd) {
+    background-color: $light-bg-blue;
+  }
+
+  li:hover {
+    background-color: $hover-bg-blue;
+  }
 }
