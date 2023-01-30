@@ -75,25 +75,60 @@
   justify-self: center;
 }
 
-@media screen and (min-width: 501px) and (max-width: 850px) {
+// @media screen and (min-width: 641px) and (max-width: 850px) {
+//   .asset-card {
+//     grid-template-areas:
+//       "ticker exchange price__label price__price"
+//       "instrument instrument price__label price__price"
+//       "allocation__label . shares__label shares__shares"
+//       "allocation__slider allocation__percent shares__label shares__shares";
+
+//     grid-template-columns: 120px 1fr 1fr 1fr;
+//   }
+
+//   .price {
+//     &__label,
+//     &__price,
+//     &__unavailable {
+//       justify-self: center;
+//       align-self: center;
+//     }
+//   }
+
+//   .shares__label {
+//     align-self: center;
+//   }
+// }
+
+@media screen and (min-width: 741px) and (max-width: 850px) {
   .asset-card {
     grid-template-areas:
-      "ticker exchange price__label"
-      "instrument instrument price__price"
-      "allocation__label . shares__label"
-      "allocation__slider allocation__percent shares__shares";
-
-    grid-template-columns: 120px 1fr 2fr;
+      "ticker instrument instrument instrument exchange"
+      "price__label allocation__label . shares__label shares__shares"
+      "price__price allocation__slider allocation__percent shares__label shares__shares";
+    grid-template-columns: 100px 120px 1fr 0.5fr 0.5fr;
   }
 
-  .price__label,
-  .price__price,
-  .price__unavailable {
-    justify-self: center;
+  .shares__label {
+    align-self: center;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 641px) and (max-width: 740px) {
+  .asset-card {
+    grid-template-areas:
+      "ticker instrument instrument exchange"
+      "price__label allocation__label . shares__label"
+      "price__price allocation__slider allocation__percent shares__shares";
+    grid-template-columns: 100px 120px 1fr 0.5fr;
+  }
+
+  .shares__label {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
   .asset-card {
     grid-template-areas:
       "ticker . exchange ."
