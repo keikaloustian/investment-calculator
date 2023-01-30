@@ -1,7 +1,8 @@
 @use "../../../abstracts/variables" as *;
 
-.error {
+.search-error {
   color: $danger-red;
+  margin: 0.5rem 0.5rem;
 }
 
 .searchbar {
