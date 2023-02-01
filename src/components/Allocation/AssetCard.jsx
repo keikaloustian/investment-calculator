@@ -23,12 +23,15 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
       <span className="price__label">Price: </span>
 
       <span className="price__price">
-        {displayPrice(
-          price,
-          error,
-          <LoadingDots />,
-          <b className="price__unavailable">unavailable</b>
-        )}
+        {
+          // Helper function that determines what to display under price - loader/price/unavailable/nothing
+          displayPrice(
+            price,
+            error,
+            <LoadingDots />,
+            <b className="price__unavailable">unavailable</b>
+          )
+        }
       </span>
 
       <label
@@ -62,6 +65,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
       <span className="shares__shares">
         {price &&
           price !== "unavailable" &&
+          // Calculate no. of shares based on allocation and round down
           Math.floor((amount * (sliderValue / 100)) / Number(price))}
       </span>
 
