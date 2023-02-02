@@ -8,13 +8,17 @@ main {
   font-family: $font-primary;
   width: clamp(300px, 60%, 650px);
   margin-inline: auto;
-  height: 100vh;
+  // height: 100vh;
+}
+
+#root {
   overflow: auto;
 }
 
 body {
   background-color: $med-blue-gray;
   margin: 0;
+  overflow: auto;
 }
 
 .finage-ticker-tape-item {
