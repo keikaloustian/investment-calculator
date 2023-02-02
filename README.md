@@ -15,6 +15,7 @@ https://investallocator.netlify.app/
 - [x] Finish AssetCard layout for small screens
 - [x] Add rolling ticker tape widget across top  
 - [x] Create loading indicator to be displayed while asset price is being fetched  
+Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page error
   
 ## Further Ideas  
 * Save contribution, asset selection and allocation (in cookies?) to facilitate repeated use
