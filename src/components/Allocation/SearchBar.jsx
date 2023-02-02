@@ -6,19 +6,18 @@ export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [displayResults, setDisplayResults] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (selectedAssets) => {
-    // The argument is provided by the AsyncSelect component
-    // which can be set as the new state directly
-    setAssets(selectedAssets);
-  };
+  // const handleChange = (selectedAssets) => {
+  //   // The argument is provided by the AsyncSelect component
+  //   // which can be set as the new state directly
+  //   setAssets(selectedAssets);
+  // };
 
-  // Function responsible for fetching the options for the search bar
-  // Receives the inputValue arg from the AsyncSelect component
-  const promiseOptions = async (inputValue) => {
+  // Function responsible for fetching the results for the search bar
+  const useApiSearch = async (inputValue) => {
     setError("");
-    // Function must return a promise that resolves to an array of objects
+
     try {
       const response = await fetch(
         `/.netlify/functions/apiSearch?symbol=${inputValue}`
@@ -31,12 +30,6 @@ export default function SearchBar({ assets, setAssets }) {
       }
       // If response is ok, parse body
       const parsed = await response.json();
-      // Map parsed data into object in format required by the AsyncSelect component
-      // If an asset is selected more than once, it raises the unique id warning
-      // return parsed.data.map((asset) => ({
-      //   value: asset,
-      //   label: `${asset.symbol} - ${asset["instrument_name"]} (${asset.exchange})`,
-      // }));
       setResults(parsed.data);
     } catch (error) {
       setError(error.message);
@@ -53,13 +46,12 @@ export default function SearchBar({ assets, setAssets }) {
         className="searchbar"
         placeholder={"Search assets"}
         value={query}
-        // onChange={(event) => setQuery(event.target.value)}
         onInput={(event) => {
           if (!displayResults) {
             setDisplayResults(true);
           }
           setQuery(event.target.value);
-          promiseOptions(event.target.value);
+          useApiSearch(event.target.value);
         }}
         autoFocus
         onFocus={() => {
