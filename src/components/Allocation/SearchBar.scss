@@ -33,10 +33,11 @@
   overflow-y: auto;
 }
 
-// .search-error {
-//   color: $danger-red;
-//   margin: 0.5rem 0.5rem;
-// }
+.search-error {
+  color: $danger-red;
+  margin: 0.5rem 0.5rem;
+  font-weight: bold;
+}
 
 // .searchbar {
 //   margin: 0 0.5rem;
