@@ -5,6 +5,7 @@ import "./SearchBar.scss";
 export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [displayResults, setDisplayResults] = useState(false);
   const [error, setError] = useState(false);
 
   const handleChange = (selectedAssets) => {
@@ -36,7 +37,7 @@ export default function SearchBar({ assets, setAssets }) {
       //   value: asset,
       //   label: `${asset.symbol} - ${asset["instrument_name"]} (${asset.exchange})`,
       // }));
-      setResults(() => parsed.data.map((asset) => <div>{asset.symbol}</div>));
+      setResults(parsed.data);
     } catch (error) {
       setError(error.message);
     }
@@ -49,12 +50,35 @@ export default function SearchBar({ assets, setAssets }) {
       <input
         type="text"
         name="searchbar"
+        className="searchbar"
+        placeholder={"Search assets"}
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        onInput={(event) => console.log(promiseOptions(event.target.value))}
+        // onChange={(event) => setQuery(event.target.value)}
+        onInput={(event) => {
+          if (!displayResults) {
+            setDisplayResults(true);
+          }
+          setQuery(event.target.value);
+          promiseOptions(event.target.value);
+        }}
+        autoFocus
+        onFocus={() => {
+          if (query) {
+            setDisplayResults(true);
+          }
+        }}
+        onBlur={() => setDisplayResults(false)}
       />
 
-      <ul>{results}</ul>
+      {displayResults && query && (
+        <div className="results-wrapper">
+          <ul className="results-list">
+            {results.map((asset, index) => (
+              <li key={index}>{asset.symbol}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* <AsyncSelect
         className="searchbar"
