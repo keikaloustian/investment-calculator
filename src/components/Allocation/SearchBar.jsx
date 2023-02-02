@@ -3,6 +3,8 @@ import AsyncSelect from "react-select/async";
 import "./SearchBar.scss";
 
 export default function SearchBar({ assets, setAssets }) {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
   const [error, setError] = useState(false);
 
   const handleChange = (selectedAssets) => {
@@ -30,10 +32,11 @@ export default function SearchBar({ assets, setAssets }) {
       const parsed = await response.json();
       // Map parsed data into object in format required by the AsyncSelect component
       // If an asset is selected more than once, it raises the unique id warning
-      return parsed.data.map((asset) => ({
-        value: asset,
-        label: `${asset.symbol} - ${asset["instrument_name"]} (${asset.exchange})`,
-      }));
+      // return parsed.data.map((asset) => ({
+      //   value: asset,
+      //   label: `${asset.symbol} - ${asset["instrument_name"]} (${asset.exchange})`,
+      // }));
+      setResults(() => parsed.data.map((asset) => <div>{asset.symbol}</div>));
     } catch (error) {
       setError(error.message);
     }
@@ -42,7 +45,18 @@ export default function SearchBar({ assets, setAssets }) {
   return (
     <>
       {error && <p className="search-error">{error}</p>}
-      <AsyncSelect
+
+      <input
+        type="text"
+        name="searchbar"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        onInput={(event) => console.log(promiseOptions(event.target.value))}
+      />
+
+      <ul>{results}</ul>
+
+      {/* <AsyncSelect
         className="searchbar"
         placeholder={"Search assets"}
         value={assets}
@@ -55,7 +69,7 @@ export default function SearchBar({ assets, setAssets }) {
         unstyled
         classNamePrefix={"searchbar"}
         autoFocus
-      />
+      /> */}
     </>
   );
 }
