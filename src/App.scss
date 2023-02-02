@@ -3,22 +3,22 @@
 
 main {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   background-color: white;
   font-family: $font-primary;
   width: clamp(300px, 60%, 650px);
   margin-inline: auto;
-  // height: 100vh;
 }
 
 #root {
-  overflow: auto;
+  min-height: 100vh;
 }
 
 body {
+  min-height: 100vh;
   background-color: $med-blue-gray;
   margin: 0;
-  overflow: auto;
 }
 
 .finage-ticker-tape-item {
