@@ -6,7 +6,7 @@
 
 .asset-card {
   list-style: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   display: grid;
   grid-template-areas:
     "ticker exchange price__label allocation__label . shares__label"
@@ -74,31 +74,6 @@
   align-self: center;
   justify-self: center;
 }
-
-// @media screen and (min-width: 641px) and (max-width: 850px) {
-//   .asset-card {
-//     grid-template-areas:
-//       "ticker exchange price__label price__price"
-//       "instrument instrument price__label price__price"
-//       "allocation__label . shares__label shares__shares"
-//       "allocation__slider allocation__percent shares__label shares__shares";
-
-//     grid-template-columns: 120px 1fr 1fr 1fr;
-//   }
-
-//   .price {
-//     &__label,
-//     &__price,
-//     &__unavailable {
-//       justify-self: center;
-//       align-self: center;
-//     }
-//   }
-
-//   .shares__label {
-//     align-self: center;
-//   }
-// }
 
 @media screen and (min-width: 741px) and (max-width: 850px) {
   .asset-card {
