@@ -26,7 +26,7 @@
 .results-list {
   position: absolute;
   box-sizing: border-box;
-  max-height: 248px;
+  max-height: 236px;
   width: 100%;
   margin-top: 0.3rem;
   background-color: white;
@@ -34,31 +34,56 @@
   border-radius: 4px;
 
   list-style-type: none;
-  padding-inline-start: 0.3rem;
-  overflow-x: hidden;
+  padding-inline-start: 0;
   overflow-y: auto;
 }
 
 .results-list__result {
+  display: flex;
   text-overflow: clip;
   overflow: hidden;
-  display: flex;
-  margin: 0.5rem 0;
+  padding-left: 0.3rem;
+}
+
+.results-list__result:not(:last-child) {
+  padding-bottom: 0.25rem;
+}
+
+.results-list__result:not(:first-child) {
+  padding-top: 0.25rem;
+}
+
+.results-list__result:hover {
+  background-color: $hover-bg-blue;
 }
 
 .result__symbol {
   color: $dark-blue-gray;
   margin-right: 1rem;
-  width: 6ch;
+  width: 12ch;
+}
+
+@media screen and (max-width: 741px) {
+  .result__symbol {
+    width: 6ch;
+  }
 }
 
 .result__instrument {
-  width: 34ch;
+  max-width: 34ch;
   margin-right: 1rem;
 }
 
 .result__exchange {
   margin: 0;
+  // width: auto;
+  margin-left: auto;
+  margin-right: 0.3rem;
+}
+
+.result__symbol,
+.result__exchange {
+  flex-shrink: 0;
 }
 
 .result__symbol,
