@@ -66,7 +66,7 @@ export default function SearchBar({ assets, setAssets }) {
         <div className="results-wrapper">
           <ul className="results-list">
             {results.map((asset, index) => (
-              <li className="results-list__result" key={index}>
+              <li className="results-list__result" key={index} tabIndex={0}>
                 <b className="result__symbol">{asset.symbol}</b>
                 <span className="result__instrument">
                   {asset.instrument_name}
