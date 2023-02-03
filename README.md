@@ -32,6 +32,7 @@ Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page
 * Deploying on Netlify
 * CSS Grid
 * SASS
+* Focus & accessibility, tabindex HTML attribute
 * Protecting secrets using serverless functions / proxy server and build environment variables
 * https://httpstat.us - an "API" that generates all the different HTTP statuses and responses
 * https://github.com/public-apis/public-apis - a list of free API's
