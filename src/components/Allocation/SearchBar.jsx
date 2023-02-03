@@ -66,7 +66,13 @@ export default function SearchBar({ assets, setAssets }) {
         <div className="results-wrapper">
           <ul className="results-list">
             {results.map((asset, index) => (
-              <li key={index}>{asset.symbol}</li>
+              <li className="results-list__result" key={index}>
+                <b className="result__symbol">{asset.symbol}</b>
+                <span className="result__instrument">
+                  {asset.instrument_name}
+                </span>
+                <p className="result__exchange">{`(${asset.exchange})`}</p>
+              </li>
             ))}
           </ul>
         </div>

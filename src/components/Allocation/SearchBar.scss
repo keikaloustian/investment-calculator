@@ -1,5 +1,11 @@
 @use "../../../abstracts/variables" as *;
 
+.search-error {
+  color: $danger-red;
+  margin: 0.5rem 0.5rem;
+  font-weight: bold;
+}
+
 .searchbar {
   box-sizing: border-box;
   height: 24.187px;
@@ -20,12 +26,12 @@
 .results-list {
   position: absolute;
   box-sizing: border-box;
-  max-height: 200px;
+  max-height: 248px;
   width: 100%;
   margin-top: 0.3rem;
   background-color: white;
   border: solid 1px $gray;
-  border-radius: 3px;
+  border-radius: 4px;
 
   list-style-type: none;
   padding-inline-start: 0.3rem;
@@ -33,10 +39,33 @@
   overflow-y: auto;
 }
 
-.search-error {
-  color: $danger-red;
-  margin: 0.5rem 0.5rem;
-  font-weight: bold;
+.results-list__result {
+  text-overflow: clip;
+  overflow: hidden;
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.result__symbol {
+  color: $dark-blue-gray;
+  margin-right: 1rem;
+  width: 6ch;
+}
+
+.result__instrument {
+  width: 34ch;
+  margin-right: 1rem;
+}
+
+.result__exchange {
+  margin: 0;
+}
+
+.result__symbol,
+.result__instrument {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 // .searchbar {
