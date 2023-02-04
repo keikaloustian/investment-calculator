@@ -8,6 +8,13 @@ export default function SearchBar({ assets, setAssets }) {
   const [displayResults, setDisplayResults] = useState(false);
   const [error, setError] = useState("");
 
+  const resultSelectHandler = (asset) => {
+    const newAssets = [...assets, asset];
+    setAssets(newAssets);
+    setResults([]);
+    setQuery("");
+  };
+
   // const handleChange = (selectedAssets) => {
   //   // The argument is provided by the AsyncSelect component
   //   // which can be set as the new state directly
@@ -66,7 +73,19 @@ export default function SearchBar({ assets, setAssets }) {
         <div className="results-wrapper">
           <ul className="results-list">
             {results.map((asset, index) => (
-              <li className="results-list__result" key={index} tabIndex={0}>
+              <li
+                className="results-list__result"
+                key={index}
+                tabIndex={0}
+                onClick={() => {
+                  resultSelectHandler(asset);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    resultSelectHandler(asset);
+                  }
+                }}
+              >
                 <b className="result__symbol">{asset.symbol}</b>
                 <span className="result__instrument">
                   {asset.instrument_name}
