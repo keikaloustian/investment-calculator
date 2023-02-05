@@ -1,7 +1,7 @@
 @use "../../../abstracts/variables" as *;
 
 $dot-diameter: 6px;
-$dot-radius: $dot-diameter / 2;
+$dot-radius: calc($dot-diameter / 2);
 $blink-duration: 0.5s;
 
 .loader {
