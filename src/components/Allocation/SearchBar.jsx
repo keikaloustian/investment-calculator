@@ -8,6 +8,9 @@ export default function SearchBar({ assets, setAssets }) {
   const [displayResults, setDisplayResults] = useState(false);
   const [error, setError] = useState("");
 
+  // Reference to the searchbar for programatic focusing and blurring
+  const searchbarRef = useRef(null);
+
   const resultSelectHandler = (asset) => {
     const newAssets = [...assets, asset];
     setAssets(newAssets);
@@ -21,9 +24,6 @@ export default function SearchBar({ assets, setAssets }) {
   //   // which can be set as the new state directly
   //   setAssets(selectedAssets);
   // };
-
-  // Reference to the searchbar for programatic focusing and blurring
-  const searchbarRef = useRef(null);
 
   // Function responsible for fetching the results for the search bar
   const useApiSearch = async (inputValue) => {
@@ -71,12 +71,18 @@ export default function SearchBar({ assets, setAssets }) {
             setDisplayResults(true);
           }
         }}
-        onBlur={() => setDisplayResults(false)}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            searchbarRef.current.blur();
+            setDisplayResults(false);
+          }
+        }}
+        // onBlur={() => setDisplayResults(false)}
       />
 
       {displayResults && query && (
-        <div className="results-wrapper" tabIndex={0}>
-          <ul className="results-list" tabIndex={0}>
+        <div className="results-wrapper">
+          <ul className="results-list">
             {results.map((asset, index) => (
               <li
                 className="results-list__result"
@@ -86,11 +92,11 @@ export default function SearchBar({ assets, setAssets }) {
                 onClick={() => {
                   resultSelectHandler(asset);
                 }}
-                // onKeyDown={(event) => {
-                //   if (event.key === "Enter") {
-                //     resultSelectHandler(asset);
-                //   }
-                // }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    resultSelectHandler(asset);
+                  }
+                }}
               >
                 <b className="result__symbol">{asset.symbol}</b>
                 <span className="result__instrument">
