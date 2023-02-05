@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AsyncSelect from "react-select/async";
 import "./SearchBar.scss";
 
@@ -13,6 +13,7 @@ export default function SearchBar({ assets, setAssets }) {
     setAssets(newAssets);
     setResults([]);
     setQuery("");
+    searchbarRef.current.focus();
   };
 
   // const handleChange = (selectedAssets) => {
@@ -20,6 +21,9 @@ export default function SearchBar({ assets, setAssets }) {
   //   // which can be set as the new state directly
   //   setAssets(selectedAssets);
   // };
+
+  // Reference to the searchbar for programatic focusing and blurring
+  const searchbarRef = useRef(null);
 
   // Function responsible for fetching the results for the search bar
   const useApiSearch = async (inputValue) => {
@@ -53,6 +57,8 @@ export default function SearchBar({ assets, setAssets }) {
         className="searchbar"
         placeholder={"Search assets"}
         value={query}
+        ref={searchbarRef}
+        autoFocus
         onInput={(event) => {
           if (!displayResults) {
             setDisplayResults(true);
@@ -60,7 +66,6 @@ export default function SearchBar({ assets, setAssets }) {
           setQuery(event.target.value);
           useApiSearch(event.target.value);
         }}
-        autoFocus
         onFocus={() => {
           if (query) {
             setDisplayResults(true);
@@ -70,21 +75,22 @@ export default function SearchBar({ assets, setAssets }) {
       />
 
       {displayResults && query && (
-        <div className="results-wrapper">
-          <ul className="results-list">
+        <div className="results-wrapper" tabIndex={0}>
+          <ul className="results-list" tabIndex={0}>
             {results.map((asset, index) => (
               <li
                 className="results-list__result"
                 key={index}
                 tabIndex={0}
+                onMouseDown={(event) => event.preventDefault()}
                 onClick={() => {
                   resultSelectHandler(asset);
                 }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    resultSelectHandler(asset);
-                  }
-                }}
+                // onKeyDown={(event) => {
+                //   if (event.key === "Enter") {
+                //     resultSelectHandler(asset);
+                //   }
+                // }}
               >
                 <b className="result__symbol">{asset.symbol}</b>
                 <span className="result__instrument">
