@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import AsyncSelect from "react-select/async";
 import "./SearchBar.scss";
 import OnClickOutside from "../../hooks/onClickOutside";
 
@@ -12,19 +11,19 @@ export default function SearchBar({ assets, setAssets }) {
   // Reference to the searchbar for programatic focusing and blurring
   const searchbarRef = useRef(null);
 
+  // Handler function for when an asset in the results dropdown is selected by way of clicking or Tab navigation followed by Enter
   const resultSelectHandler = (asset) => {
+    // Assemble new array of assets to be invested in and set state
     const newAssets = [...assets, asset];
     setAssets(newAssets);
+
+    // Reset the search results and the query for next search
     setResults([]);
     setQuery("");
+
+    // Re-focus the searchbar using the ref
     searchbarRef.current.focus();
   };
-
-  // const handleChange = (selectedAssets) => {
-  //   // The argument is provided by the AsyncSelect component
-  //   // which can be set as the new state directly
-  //   setAssets(selectedAssets);
-  // };
 
   // Function responsible for fetching the results for the search bar
   const useApiSearch = async (inputValue) => {
@@ -52,11 +51,12 @@ export default function SearchBar({ assets, setAssets }) {
     <>
       {error && <p className="search-error">{error}</p>}
 
+      {/* OnClickOutside is a component that listens for clicks outside of its DOM subtree and fires the callback passed as prop when it occurs */}
+      {/* Necessary because using onBlur on the searchbar conflicted with the Tab press to navigate to the search results */}
       <OnClickOutside
         callback={() => {
           searchbarRef.current.blur();
           setDisplayResults(false);
-          // console.log("callback");
         }}
       >
         <input
@@ -71,6 +71,10 @@ export default function SearchBar({ assets, setAssets }) {
             if (!displayResults) {
               setDisplayResults(true);
             }
+            // Potential feature to show 'Loading...' in dropdown list while results are being fetched
+            // if (!results.length) {
+            //   set a loading state to true, conditionally render text atop of dropdown list
+            // }
             setQuery(event.target.value);
             useApiSearch(event.target.value);
           }}
@@ -85,10 +89,10 @@ export default function SearchBar({ assets, setAssets }) {
               setDisplayResults(false);
             }
           }}
-          // onBlur={() => setDisplayResults(false)}
         />
       </OnClickOutside>
 
+      {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
       {displayResults && query && (
         <div className="results-wrapper">
           <ul className="results-list">
@@ -97,6 +101,7 @@ export default function SearchBar({ assets, setAssets }) {
                 className="results-list__result"
                 key={index}
                 tabIndex={0}
+                // The event below prevents the searchbar from blurring which would unmount the results dropdown list and prevent the selected from being added to AssetList
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => {
                   resultSelectHandler(asset);
@@ -117,21 +122,6 @@ export default function SearchBar({ assets, setAssets }) {
           </ul>
         </div>
       )}
-
-      {/* <AsyncSelect
-        className="searchbar"
-        placeholder={"Search assets"}
-        value={assets}
-        onChange={handleChange}
-        loadOptions={promiseOptions}
-        openMenuOnClick={false}
-        isMulti
-        isClearable
-        noOptionsMessage={() => "No assets found"}
-        unstyled
-        classNamePrefix={"searchbar"}
-        autoFocus
-      /> */}
     </>
   );
 }
