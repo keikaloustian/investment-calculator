@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./SearchBar.scss";
-import OnClickOutside from "../../hooks/onClickOutside";
+import OnClickOutside from "../OnClickOutside";
 
 export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
