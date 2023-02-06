@@ -1,20 +1,19 @@
 import { useEffect, useRef } from "react";
 
-export default function useClickedOutside(props) {
+export default function OnClickOutside(props) {
   const wrapperRef = useRef(null);
-  const callback = props.callback;
 
   useEffect(() => {
     const handler = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        callback();
+        props.callback();
       }
     };
 
-    document.addEventListener("onclick", handler);
+    document.addEventListener("click", handler);
 
     return () => {
-      document.removeEventListener("onclick", handler);
+      document.removeEventListener("click", handler);
     };
   }, [wrapperRef]);
 

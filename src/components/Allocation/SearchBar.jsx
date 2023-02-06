@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import AsyncSelect from "react-select/async";
 import "./SearchBar.scss";
+import OnClickOutside from "../../hooks/onClickOutside";
 
 export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
@@ -51,34 +52,42 @@ export default function SearchBar({ assets, setAssets }) {
     <>
       {error && <p className="search-error">{error}</p>}
 
-      <input
-        type="text"
-        name="searchbar"
-        className="searchbar"
-        placeholder={"Search assets"}
-        value={query}
-        ref={searchbarRef}
-        autoFocus
-        onInput={(event) => {
-          if (!displayResults) {
-            setDisplayResults(true);
-          }
-          setQuery(event.target.value);
-          useApiSearch(event.target.value);
+      <OnClickOutside
+        callback={() => {
+          searchbarRef.current.blur();
+          setDisplayResults(false);
+          // console.log("callback");
         }}
-        onFocus={() => {
-          if (query) {
-            setDisplayResults(true);
-          }
-        }}
-        onKeyDown={(event) => {
-          if (event.key === "Escape") {
-            searchbarRef.current.blur();
-            setDisplayResults(false);
-          }
-        }}
-        // onBlur={() => setDisplayResults(false)}
-      />
+      >
+        <input
+          type="text"
+          name="searchbar"
+          className="searchbar"
+          placeholder={"Search assets"}
+          value={query}
+          ref={searchbarRef}
+          autoFocus
+          onInput={(event) => {
+            if (!displayResults) {
+              setDisplayResults(true);
+            }
+            setQuery(event.target.value);
+            useApiSearch(event.target.value);
+          }}
+          onFocus={() => {
+            if (query) {
+              setDisplayResults(true);
+            }
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              searchbarRef.current.blur();
+              setDisplayResults(false);
+            }
+          }}
+          // onBlur={() => setDisplayResults(false)}
+        />
+      </OnClickOutside>
 
       {displayResults && query && (
         <div className="results-wrapper">
