@@ -25,7 +25,7 @@ Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page
 * Vite
 * ~~react-select AsyncSelect component~~
 * ~~useContext hook~~
-* ~~useRef() hook~~
+* useRef hook
 * stale closures in useEffect() 
 * JavaScript fetch API and async-await syntax
 * Using third-party API's and widgets
