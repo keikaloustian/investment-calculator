@@ -27,6 +27,7 @@ Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page
 * ~~useContext hook~~
 * useRef hook
 * stale closures in useEffect() 
+* A React component that detects clicks outside of it's DOM subtree (https://stackoverflow.com/a/42234988)
 * JavaScript fetch API and async-await syntax
 * Using third-party API's and widgets
 * Deploying on Netlify
