@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./SearchBar.scss";
-import OnClickOutside from "../OnClickOutside";
+import OutsideClickHandler from "../OutsideClickHandler";
 
 export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
@@ -53,7 +53,7 @@ export default function SearchBar({ assets, setAssets }) {
 
       {/* OnClickOutside is a component that listens for clicks outside of its DOM subtree and fires the callback passed as prop when it occurs */}
       {/* Necessary because using onBlur on the searchbar conflicted with the Tab press to navigate to the search results */}
-      <OnClickOutside
+      <OutsideClickHandler
         callback={() => {
           searchbarRef.current.blur();
           setDisplayResults(false);
@@ -90,38 +90,38 @@ export default function SearchBar({ assets, setAssets }) {
             }
           }}
         />
-      </OnClickOutside>
 
-      {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
-      {displayResults && query && (
-        <div className="results-wrapper">
-          <ul className="results-list">
-            {results.map((asset, index) => (
-              <li
-                className="results-list__result"
-                key={index}
-                tabIndex={0}
-                // The event below prevents the searchbar from blurring which would unmount the results dropdown list and prevent the selected from being added to AssetList
-                onMouseDown={(event) => event.preventDefault()}
-                onClick={() => {
-                  resultSelectHandler(asset);
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
+        {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
+        {displayResults && query && (
+          <div className="results-wrapper">
+            <ul className="results-list">
+              {results.map((asset, index) => (
+                <li
+                  className="results-list__result"
+                  key={index}
+                  tabIndex={0}
+                  // The event below prevents the searchbar from blurring which would unmount the results dropdown list and prevent the selected from being added to AssetList
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={() => {
                     resultSelectHandler(asset);
-                  }
-                }}
-              >
-                <b className="result__symbol">{asset.symbol}</b>
-                <span className="result__instrument">
-                  {asset.instrument_name}
-                </span>
-                <p className="result__exchange">{`(${asset.exchange})`}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      resultSelectHandler(asset);
+                    }
+                  }}
+                >
+                  <b className="result__symbol">{asset.symbol}</b>
+                  <span className="result__instrument">
+                    {asset.instrument_name}
+                  </span>
+                  <p className="result__exchange">{`(${asset.exchange})`}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </OutsideClickHandler>
     </>
   );
 }
