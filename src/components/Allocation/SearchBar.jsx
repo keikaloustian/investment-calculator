@@ -109,6 +109,9 @@ export default function SearchBar({ assets, setAssets }) {
                     if (event.key === "Enter") {
                       resultSelectHandler(asset);
                     }
+                    if (event.key === "Escape") {
+                      setDisplayResults(false);
+                    }
                   }}
                 >
                   <b className="result__symbol">{asset.symbol}</b>
