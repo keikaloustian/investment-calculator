@@ -15,7 +15,7 @@ export default function AssetList({ assets, amount }) {
       <ul className="asset-list">
         {assets.map((asset, index) => (
           <AssetCard
-            data={asset.value}
+            data={asset}
             key={index}
             amount={amount}
             remainder={remainder}

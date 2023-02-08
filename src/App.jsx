@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import "./App.scss";
 import useTickerTape from "./hooks/useTickerTape";

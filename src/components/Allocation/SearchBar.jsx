@@ -1,21 +1,34 @@
-import { useState } from "react";
-import AsyncSelect from "react-select/async";
+import { useState, useRef } from "react";
 import "./SearchBar.scss";
+import OutsideClickHandler from "../OutsideClickHandler";
 
 export default function SearchBar({ assets, setAssets }) {
-  const [error, setError] = useState(false);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [displayResults, setDisplayResults] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (selectedAssets) => {
-    // The argument is provided by the AsyncSelect component
-    // which can be set as the new state directly
-    setAssets(selectedAssets);
+  // Reference to the searchbar for programatic focusing and blurring
+  const searchbarRef = useRef(null);
+
+  // Handler function for when an asset in the results dropdown is selected by way of clicking or Tab navigation followed by Enter
+  const resultSelectHandler = (asset) => {
+    // Assemble new array of assets to be invested in and set state
+    const newAssets = [...assets, asset];
+    setAssets(newAssets);
+
+    // Reset the search results and the query for next search
+    setResults([]);
+    setQuery("");
+
+    // Re-focus the searchbar using the ref
+    searchbarRef.current.focus();
   };
 
-  // Function responsible for fetching the options for the search bar
-  // Receives the inputValue arg from the AsyncSelect component
-  const promiseOptions = async (inputValue) => {
+  // Function responsible for fetching the results for the search bar
+  const useApiSearch = async (inputValue) => {
     setError("");
-    // Function must return a promise that resolves to an array of objects
+
     try {
       const response = await fetch(
         `/.netlify/functions/apiSearch?symbol=${inputValue}`
@@ -28,12 +41,7 @@ export default function SearchBar({ assets, setAssets }) {
       }
       // If response is ok, parse body
       const parsed = await response.json();
-      // Map parsed data into object in format required by the AsyncSelect component
-      // If an asset is selected more than once, it raises the unique id warning
-      return parsed.data.map((asset) => ({
-        value: asset,
-        label: `${asset.symbol} - ${asset["instrument_name"]} (${asset.exchange})`,
-      }));
+      setResults(parsed.data);
     } catch (error) {
       setError(error.message);
     }
@@ -42,20 +50,78 @@ export default function SearchBar({ assets, setAssets }) {
   return (
     <>
       {error && <p className="search-error">{error}</p>}
-      <AsyncSelect
-        className="searchbar"
-        placeholder={"Search assets"}
-        value={assets}
-        onChange={handleChange}
-        loadOptions={promiseOptions}
-        openMenuOnClick={false}
-        isMulti
-        isClearable
-        noOptionsMessage={() => "No assets found"}
-        unstyled
-        classNamePrefix={"searchbar"}
-        autoFocus
-      />
+
+      {/* OnClickOutside is a component that listens for clicks outside of its DOM subtree and fires the callback passed as prop when it occurs */}
+      {/* Necessary because using onBlur on the searchbar conflicted with the Tab press to navigate to the search results */}
+      <OutsideClickHandler
+        callback={() => {
+          searchbarRef.current.blur();
+          setDisplayResults(false);
+        }}
+      >
+        <input
+          type="text"
+          name="searchbar"
+          className="searchbar"
+          placeholder={"Search assets"}
+          value={query}
+          ref={searchbarRef}
+          autoFocus
+          onInput={(event) => {
+            if (!displayResults) {
+              setDisplayResults(true);
+            }
+            // Potential feature to show 'Loading...' in dropdown list while results are being fetched
+            // if (!results.length) {
+            //   set a loading state to true, conditionally render text atop of dropdown list
+            // }
+            setQuery(event.target.value);
+            useApiSearch(event.target.value);
+          }}
+          onFocus={() => {
+            if (query) {
+              setDisplayResults(true);
+            }
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              searchbarRef.current.blur();
+              setDisplayResults(false);
+            }
+          }}
+        />
+
+        {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
+        {displayResults && query && (
+          <div className="results-wrapper">
+            <ul className="results-list">
+              {results.map((asset, index) => (
+                <li
+                  className="results-list__result"
+                  key={index}
+                  tabIndex={0}
+                  // The event below prevents the searchbar from blurring which would unmount the results dropdown list and prevent the selected from being added to AssetList
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={() => {
+                    resultSelectHandler(asset);
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      resultSelectHandler(asset);
+                    }
+                  }}
+                >
+                  <b className="result__symbol">{asset.symbol}</b>
+                  <span className="result__instrument">
+                    {asset.instrument_name}
+                  </span>
+                  <p className="result__exchange">{`(${asset.exchange})`}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </OutsideClickHandler>
     </>
   );
 }

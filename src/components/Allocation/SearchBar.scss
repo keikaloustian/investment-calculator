@@ -3,89 +3,183 @@
 .search-error {
   color: $danger-red;
   margin: 0.5rem 0.5rem;
+  font-weight: bold;
 }
 
 .searchbar {
-  margin: 0 0.5rem;
-}
-
-.searchbar__control {
-  background-color: white;
+  box-sizing: border-box;
+  height: 24.187px;
+  width: calc(100% - 1rem);
   font-size: 0.83rem;
-  border: 1px $gray solid;
+  border-style: none;
+  border: 1px #6e777d solid;
   border-radius: 3px;
+  padding: 1px 2px 1px 0.3rem;
+  margin-left: 0.5rem;
 }
 
-.searchbar__value-container {
-  padding: 0.125rem 0.5rem;
+.results-wrapper {
+  position: relative;
+  margin-inline: 0.5rem;
 }
 
-.searchbar__placeholder {
-  color: $gray;
-  margin: 0 0.125rem;
-}
-
-.searchbar__indicator-separator {
-  background-color: $gray;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.searchbar__indicator {
-  color: $gray;
-  padding: 0.5rem;
-}
-
-.searchbar__clear-indicator:hover {
-  color: $danger-red;
-}
-
-.searchbar__dropdown-indicator:hover {
-  color: $dark-blue-gray;
-}
-
-.searchbar__multi-value {
-  background-color: $light-bg-blue;
-  border-radius: 0.125rem;
-  margin: 0.125rem;
-}
-
-.searchbar__multi-value__label {
-  border-radius: 0.125rem;
-  color: hsl(0, 0%, 20%);
-  font-size: 85%;
-  padding: 3px;
-  padding-left: 6px;
-}
-
-.searchbar__multi-value__remove {
-  border-radius: 0.125rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  color: $med-blue-gray;
-}
-
-.searchbar__multi-value__remove:hover {
-  color: $danger-red;
-}
-
-.searchbar__menu {
-  margin-top: 0.5rem;
+.results-list {
+  position: absolute;
+  box-sizing: border-box;
+  max-height: 236px;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 2px 2px;
   background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);
+  border: solid 1px $gray;
+  border-radius: 4px;
+
+  list-style-type: none;
+  padding-inline-start: 2px;
+  overflow-y: auto;
 }
 
-.searchbar__menu-list {
-  padding: 0.25rem 0;
+.results-list__result {
+  display: flex;
+  text-overflow: clip;
+  overflow: hidden;
+  padding-left: 0.3rem;
+  cursor: pointer;
 }
 
-.searchbar__option {
-  background-color: transparent;
-  color: inherit;
-  padding: 8px 10px;
+.results-list__result:not(:last-child) {
+  padding-bottom: 0.25rem;
 }
 
-.searchbar__option--is-focused {
+.results-list__result:not(:first-child) {
+  padding-top: 0.25rem;
+}
+
+.results-list__result:hover {
   background-color: $hover-bg-blue;
 }
+
+.results-list__result:focus-visible {
+  outline: $med-blue-gray solid 2px;
+  border-radius: 2px;
+}
+
+.result__symbol {
+  color: $dark-blue-gray;
+  margin-right: 1rem;
+  width: 12ch;
+}
+
+@media screen and (max-width: 741px) {
+  .result__symbol {
+    width: 6ch;
+  }
+}
+
+.result__instrument {
+  max-width: 34ch;
+  margin-right: 1rem;
+}
+
+.result__exchange {
+  margin: 0;
+  margin-left: auto;
+  margin-right: 0.3rem;
+}
+
+.result__symbol,
+.result__exchange {
+  flex-shrink: 0;
+}
+
+.result__symbol,
+.result__instrument {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// .searchbar {
+//   margin: 0 0.5rem;
+// }
+
+// .searchbar__control {
+//   background-color: white;
+//   font-size: 0.83rem;
+//   border: 1px $gray solid;
+//   border-radius: 3px;
+// }
+
+// .searchbar__value-container {
+//   padding: 0.125rem 0.5rem;
+// }
+
+// .searchbar__placeholder {
+//   color: $gray;
+//   margin: 0 0.125rem;
+// }
+
+// .searchbar__indicator-separator {
+//   background-color: $gray;
+//   margin-bottom: 0.5rem;
+//   margin-top: 0.5rem;
+// }
+
+// .searchbar__indicator {
+//   color: $gray;
+//   padding: 0.5rem;
+// }
+
+// .searchbar__clear-indicator:hover {
+//   color: $danger-red;
+// }
+
+// .searchbar__dropdown-indicator:hover {
+//   color: $dark-blue-gray;
+// }
+
+// .searchbar__multi-value {
+//   background-color: $light-bg-blue;
+//   border-radius: 0.125rem;
+//   margin: 0.125rem;
+// }
+
+// .searchbar__multi-value__label {
+//   border-radius: 0.125rem;
+//   color: hsl(0, 0%, 20%);
+//   font-size: 85%;
+//   padding: 3px;
+//   padding-left: 6px;
+// }
+
+// .searchbar__multi-value__remove {
+//   border-radius: 0.125rem;
+//   padding-left: 0.25rem;
+//   padding-right: 0.25rem;
+//   color: $med-blue-gray;
+// }
+
+// .searchbar__multi-value__remove:hover {
+//   color: $danger-red;
+// }
+
+// .searchbar__menu {
+//   margin-top: 0.5rem;
+//   background-color: white;
+//   border-radius: 0.25rem;
+//   box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);
+// }
+
+// .searchbar__menu-list {
+//   padding: 0.25rem 0;
+// }
+
+// .searchbar__option {
+//   background-color: transparent;
+//   color: inherit;
+//   padding: 8px 10px;
+// }
+
+// .searchbar__option--is-focused {
+//   background-color: $hover-bg-blue;
+// }
