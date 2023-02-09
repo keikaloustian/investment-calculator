@@ -80,7 +80,8 @@
     grid-template-areas:
       "ticker instrument instrument instrument exchange"
       "price__label allocation__label . shares__label shares__shares"
-      "price__price allocation__slider allocation__percent shares__label shares__shares";
+      "price__price allocation__slider allocation__percent shares__label shares__shares"
+      "error-message error-message error-message error-message error-message";
     grid-template-columns: 100px 120px 1fr 0.5fr 0.5fr;
   }
 
@@ -94,7 +95,9 @@
     grid-template-areas:
       "ticker instrument instrument exchange"
       "price__label allocation__label . shares__label"
-      "price__price allocation__slider allocation__percent shares__shares";
+      "price__price allocation__slider allocation__percent shares__shares"
+      "error-message error-message error-message error-message";
+
     grid-template-columns: 100px 120px 1fr 0.5fr;
   }
 
@@ -110,7 +113,8 @@
       "instrument instrument instrument instrument"
       "price__label price__price . ."
       "allocation__label allocation__label . shares__label "
-      " allocation__slider allocation__slider allocation__percent shares__shares";
+      " allocation__slider allocation__slider allocation__percent shares__shares"
+      "error-message error-message error-message error-message";
 
     grid-template-columns: 60px 60px 45px;
   }
