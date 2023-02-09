@@ -1,33 +1,11 @@
 import { useEffect, useRef } from "react";
 
-// export default function OnClickOutside(props) {
-//   const wrapperRef = useRef(null);
-
-//   useEffect(() => {
-//     const handler = (event) => {
-//       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-//         props.callback();
-//       }
-//     };
-
-//     document.addEventListener("click", handler);
-
-//     return () => {
-//       document.removeEventListener("click", handler);
-//     };
-//   }, [wrapperRef]);
-
-//   return <div ref={wrapperRef}>{props.children}</div>;
-// }
-
-function useOutsideAlerter(ref, cb) {
+const useOutsideClick = (ref, callback) => {
   useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
+    // Execute callback function if clicked element is outside of OutsideCLickHandler's DOM subtree
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        cb();
+        callback();
       }
     }
     // Bind the event listener
@@ -37,11 +15,11 @@ function useOutsideAlerter(ref, cb) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref]);
-}
+};
 
 export default function OutsideClickHandler(props) {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, props.callback);
+  useOutsideClick(wrapperRef, props.callback);
 
   return <div ref={wrapperRef}>{props.children}</div>;
 }
