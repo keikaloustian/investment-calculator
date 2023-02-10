@@ -42,10 +42,12 @@ Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page
 
 ## Finished Product  
 ## Dependencies
-* vite
-* react-select
 * dotenv
+* react
+* react-dom
+* netlify-cli
 * node-fetch
-* netlify-cli  
+* sass
+* vite  
 
 ## Setup
