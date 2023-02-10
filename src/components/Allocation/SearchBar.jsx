@@ -31,6 +31,10 @@ export default function SearchBar({ assets, setAssets }) {
       setError("");
     }
 
+    if (inputValue.length === 1) {
+      setResults([]);
+    }
+
     // Call search API with query
     try {
       const response = await fetch(
