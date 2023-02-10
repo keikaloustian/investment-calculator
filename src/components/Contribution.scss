@@ -71,10 +71,19 @@
 
 .input-group {
   display: flex;
-  align-items: stretch;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.contribution-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.contribution-wrapper:focus-within {
+  outline: 2px solid $accent-blue;
+  border-radius: 3px;
 }
 
 .input-group__adornment {
@@ -96,4 +105,8 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   width: 126px;
+}
+
+.input-group__input:focus-visible {
+  outline: none;
 }
