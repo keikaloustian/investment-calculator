@@ -27,8 +27,11 @@ export default function SearchBar({ assets, setAssets }) {
 
   // Function responsible for fetching the results for the search bar
   const useApiSearch = async (inputValue) => {
-    setError("");
+    if (error) {
+      setError("");
+    }
 
+    // Call search API with query
     try {
       const response = await fetch(
         `/.netlify/functions/apiSearch?symbol=${inputValue}`
