@@ -15,6 +15,12 @@
   background-color: $dark-blue-gray;
 }
 
+@media screen and (max-width: 600px) {
+  .contribution__heading {
+    font-size: 0.9rem;
+  }
+}
+
 .button-group {
   margin-bottom: 1rem;
 }
@@ -83,7 +89,6 @@
 
 .input-group__input {
   height: 20.187px;
-  // width: auto;
   font-size: 0.83rem;
   padding-left: 0.3rem;
   border-style: none; //unset browser default
@@ -91,5 +96,4 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   width: 126px;
-  // max-width: 400px;
 }

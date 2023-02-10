@@ -26,3 +26,9 @@
   margin-bottom: 1rem;
   background-color: $dark-blue-gray;
 }
+
+@media screen and (max-width: 600px) {
+  .allocation__heading {
+    font-size: 1rem;
+  }
+}
