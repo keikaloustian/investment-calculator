@@ -16,7 +16,6 @@
   border: 2px solid $dark-blue-gray;
   border-radius: 6px;
   margin: 0.5rem;
-  padding-bottom: 1rem;
 }
 
 .allocation__heading {
@@ -25,4 +24,10 @@
   margin-top: 0;
   margin-bottom: 1rem;
   background-color: $dark-blue-gray;
+}
+
+@media screen and (max-width: 600px) {
+  .allocation__heading {
+    font-size: 1rem;
+  }
 }

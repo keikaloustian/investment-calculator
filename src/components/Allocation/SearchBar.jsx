@@ -27,8 +27,11 @@ export default function SearchBar({ assets, setAssets }) {
 
   // Function responsible for fetching the results for the search bar
   const useApiSearch = async (inputValue) => {
-    setError("");
+    if (error) {
+      setError("");
+    }
 
+    // Call search API with query
     try {
       const response = await fetch(
         `/.netlify/functions/apiSearch?symbol=${inputValue}`
@@ -60,36 +63,36 @@ export default function SearchBar({ assets, setAssets }) {
           setDisplayResults(false);
         }}
       >
-        <input
-          type="text"
-          name="searchbar"
-          className="searchbar"
-          placeholder={"Search assets"}
-          value={query}
-          ref={searchbarRef}
-          autoFocus
-          // When the searchbar receives input, display results dropdown, update the controlled value and make API call
-          onInput={(event) => {
-            if (!displayResults) {
-              setDisplayResults(true);
-            }
-            setQuery(event.target.value);
-            useApiSearch(event.target.value);
-          }}
-          // When searchbar receives focus, display results dropdown only if there's a query
-          onFocus={() => {
-            if (query) {
-              setDisplayResults(true);
-            }
-          }}
-          // When searchbar is focused, pressing escape closes the dropdown and blurs input
-          onKeyDown={(event) => {
-            if (event.key === "Escape") {
-              searchbarRef.current.blur();
-              setDisplayResults(false);
-            }
-          }}
-        />
+        <div className="searchbar-wrapper">
+          <span className="input-group__adornment--search">🔎</span>
+          <input
+            type="text"
+            name="searchbar"
+            className="searchbar"
+            placeholder={"Search assets"}
+            value={query}
+            ref={searchbarRef}
+            autoFocus
+            onInput={(event) => {
+              if (!displayResults) {
+                setDisplayResults(true);
+              }
+              setQuery(event.target.value);
+              useApiSearch(event.target.value);
+            }}
+            onFocus={() => {
+              if (query) {
+                setDisplayResults(true);
+              }
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") {
+                searchbarRef.current.blur();
+                setDisplayResults(false);
+              }
+            }}
+          />
+        </div>
 
         {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
         {displayResults && query && (

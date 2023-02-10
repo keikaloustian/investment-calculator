@@ -15,6 +15,12 @@
   background-color: $dark-blue-gray;
 }
 
+@media screen and (max-width: 600px) {
+  .contribution__heading {
+    font-size: 0.9rem;
+  }
+}
+
 .button-group {
   margin-bottom: 1rem;
 }
@@ -72,9 +78,10 @@
 }
 
 .input-group__adornment {
-  text-align: center;
-  padding: 0.1rem 0.3rem;
   border: solid 1px $gray;
+  padding-inline: 0.3rem;
+  padding-top: 0.1rem;
+
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border-right: none;
@@ -82,8 +89,6 @@
 }
 
 .input-group__input {
-  height: 20.187px;
-  // width: auto;
   font-size: 0.83rem;
   padding-left: 0.3rem;
   border-style: none; //unset browser default
@@ -91,5 +96,4 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   width: 126px;
-  // max-width: 400px;
 }
