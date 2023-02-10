@@ -31,11 +31,6 @@ export default function SearchBar({ assets, setAssets }) {
       setError("");
     }
 
-    // Reset results if searchbar was cleared and new search is being typed
-    if (inputValue.length === 1) {
-      setResults([]);
-    }
-
     // Call search API with query
     try {
       const response = await fetch(
@@ -83,7 +78,13 @@ export default function SearchBar({ assets, setAssets }) {
                 setDisplayResults(true);
               }
               setQuery(event.target.value);
-              useApiSearch(event.target.value);
+              // If searchbar has been cleared, reset results
+              if (!event.target.value) {
+                setResults([]);
+              } else {
+                // Otherwise call search API
+                useApiSearch(event.target.value);
+              }
             }}
             onFocus={() => {
               if (query) {
@@ -100,7 +101,7 @@ export default function SearchBar({ assets, setAssets }) {
         </div>
 
         {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
-        {displayResults && query && (
+        {displayResults && query && results.length > 0 && (
           <div className="results-wrapper">
             <ul className="results-list">
               {results.map((asset, index) => (
