@@ -9,7 +9,7 @@ export default function AssetList({ assets, amount }) {
   return (
     <>
       <p className="remainder-msg">
-        You have <b>{remainder}%</b> of ${amount} left to allocate
+        You have <b>{remainder}%</b> of ${amount} remaining
       </p>
       {/* List of asset cards */}
       <ul className="asset-list">
