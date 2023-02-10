@@ -59,37 +59,36 @@ export default function SearchBar({ assets, setAssets }) {
           setDisplayResults(false);
         }}
       >
-        <input
-          type="text"
-          name="searchbar"
-          className="searchbar"
-          placeholder={"Search assets"}
-          value={query}
-          ref={searchbarRef}
-          autoFocus
-          onInput={(event) => {
-            if (!displayResults) {
-              setDisplayResults(true);
-            }
-            // Potential feature to show 'Loading...' in dropdown list while results are being fetched
-            // if (!results.length) {
-            //   set a loading state to true, conditionally render text atop of dropdown list
-            // }
-            setQuery(event.target.value);
-            useApiSearch(event.target.value);
-          }}
-          onFocus={() => {
-            if (query) {
-              setDisplayResults(true);
-            }
-          }}
-          onKeyDown={(event) => {
-            if (event.key === "Escape") {
-              searchbarRef.current.blur();
-              setDisplayResults(false);
-            }
-          }}
-        />
+        <div className="searchbar-wrapper">
+          <span className="input-group__adornment--search">🔎</span>
+          <input
+            type="text"
+            name="searchbar"
+            className="searchbar"
+            placeholder={"Search assets"}
+            value={query}
+            ref={searchbarRef}
+            autoFocus
+            onInput={(event) => {
+              if (!displayResults) {
+                setDisplayResults(true);
+              }
+              setQuery(event.target.value);
+              useApiSearch(event.target.value);
+            }}
+            onFocus={() => {
+              if (query) {
+                setDisplayResults(true);
+              }
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") {
+                searchbarRef.current.blur();
+                setDisplayResults(false);
+              }
+            }}
+          />
+        </div>
 
         {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
         {displayResults && query && (

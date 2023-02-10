@@ -6,16 +6,30 @@
   font-weight: bold;
 }
 
+.searchbar-wrapper {
+  margin-inline: 0.5rem;
+  display: flex;
+}
+
+.input-group__adornment--search {
+  padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+  border: solid 1px $gray;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-right: none;
+  font-size: 0.67rem;
+}
+
 .searchbar {
   box-sizing: border-box;
   height: 24.187px;
-  width: calc(100% - 1rem);
+  flex-grow: 1;
   font-size: 0.83rem;
   border-style: none;
   border: 1px #6e777d solid;
-  border-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   padding: 1px 2px 1px 0.3rem;
-  margin-left: 0.5rem;
 }
 
 .results-wrapper {
