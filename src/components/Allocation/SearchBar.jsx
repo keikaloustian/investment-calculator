@@ -80,7 +80,6 @@ export default function SearchBar({ assets, setAssets }) {
   return (
     <>
       {error && <p className="search-error">{error}</p>}
-      {loading.status && <LoadingDots></LoadingDots>}
 
       {/* OnClickOutside is a component that listens for clicks outside of its DOM subtree and fires the callback (passed as prop) when it occurs */}
       {/* Necessary because using onBlur on the searchbar conflicted with the Tab press to navigate to the search results */}
@@ -116,6 +115,10 @@ export default function SearchBar({ assets, setAssets }) {
               }
             }}
           />
+
+          <span className="search-loader">
+            {loading.status && <LoadingDots></LoadingDots>}
+          </span>
         </div>
 
         {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
