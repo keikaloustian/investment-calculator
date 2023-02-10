@@ -54,8 +54,9 @@ export default function SearchBar({ assets, setAssets }) {
     <>
       {error && <p className="search-error">{error}</p>}
 
-      {/* OnClickOutside is a component that listens for clicks outside of its DOM subtree and fires the callback passed as prop when it occurs */}
+      {/* OnClickOutside is a component that listens for clicks outside of its DOM subtree and fires the callback (passed as prop) when it occurs */}
       {/* Necessary because using onBlur on the searchbar conflicted with the Tab press to navigate to the search results */}
+      {/* Potential up/down arrow navigation will have to be a separate system */}
       <OutsideClickHandler
         callback={() => {
           searchbarRef.current.blur();
@@ -101,15 +102,21 @@ export default function SearchBar({ assets, setAssets }) {
                 <li
                   className="results-list__result"
                   key={index}
+                  // The tabIndex prop ensures the results can be focused
                   tabIndex={0}
                   // The event below prevents the searchbar from blurring which would unmount the results dropdown list and prevent the selected from being added to AssetList
                   onMouseDown={(event) => event.preventDefault()}
+                  // Event listener for click selection of a search result
                   onClick={() => {
                     resultSelectHandler(asset);
                   }}
+                  // Event listener for key presses - Enter to select a search result and Escape to close the dropdown
                   onKeyDown={(event) => {
                     if (event.key === "Enter") {
                       resultSelectHandler(asset);
+                    }
+                    if (event.key === "Escape") {
+                      setDisplayResults(false);
                     }
                   }}
                 >
