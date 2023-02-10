@@ -31,6 +31,7 @@ export default function SearchBar({ assets, setAssets }) {
       setError("");
     }
 
+    // Reset results if searchbar was cleared and new search is being typed
     if (inputValue.length === 1) {
       setResults([]);
     }
