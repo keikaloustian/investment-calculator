@@ -1,29 +1,17 @@
 import { useState, useRef } from "react";
 import "./SearchBar.scss";
 import OutsideClickHandler from "../OutsideClickHandler";
+import LoadingDots from "./LoadingDots";
 
 export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [displayResults, setDisplayResults] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState({ status: false, newSearch: true });
 
   // Reference to the searchbar for programatic focusing and blurring
   const searchbarRef = useRef(null);
-
-  // Handler function for when an asset in the results dropdown is selected by way of clicking or Tab navigation followed by Enter
-  const resultSelectHandler = (asset) => {
-    // Assemble new array of assets to be invested in and set state
-    const newAssets = [...assets, asset];
-    setAssets(newAssets);
-
-    // Reset the search results and the query for next search
-    setResults([]);
-    setQuery("");
-
-    // Re-focus the searchbar using the ref
-    searchbarRef.current.focus();
-  };
 
   // Function responsible for fetching the results for the search bar
   const useApiSearch = async (inputValue) => {
@@ -47,6 +35,45 @@ export default function SearchBar({ assets, setAssets }) {
       setResults(parsed.data);
     } catch (error) {
       setError(error.message);
+    }
+    setLoading({ status: false, newSearch: false });
+  };
+
+  // Handler function for when an asset in the results dropdown is selected by way of clicking or Tab navigation followed by Enter
+  const resultSelectHandler = (asset) => {
+    // Assemble new array of assets to be invested in and set state
+    const newAssets = [...assets, asset];
+    setAssets(newAssets);
+
+    // Reset the search results and the query for next search
+    setResults([]);
+    setQuery("");
+
+    // Re-focus the searchbar using the ref
+    searchbarRef.current.focus();
+  };
+
+  // Handler function for when the searchbar receives input
+  const inputHandler = (event) => {
+    if (!displayResults) {
+      setDisplayResults(true);
+    }
+
+    // Update value of controlled component
+    setQuery(event.target.value);
+
+    // If it's a new search, show loading indicator
+    if (loading.newSearch) {
+      setLoading({ status: true, newSearch: false });
+    }
+
+    // If searchbar has been cleared, reset results
+    if (!event.target.value) {
+      setResults([]);
+      setLoading({ status: false, newSearch: true });
+    } else {
+      // Otherwise call search API
+      useApiSearch(event.target.value);
     }
   };
 
@@ -74,11 +101,7 @@ export default function SearchBar({ assets, setAssets }) {
             ref={searchbarRef}
             autoFocus
             onInput={(event) => {
-              if (!displayResults) {
-                setDisplayResults(true);
-              }
-              setQuery(event.target.value);
-              useApiSearch(event.target.value);
+              inputHandler(event);
             }}
             onFocus={() => {
               if (query) {
@@ -92,10 +115,14 @@ export default function SearchBar({ assets, setAssets }) {
               }
             }}
           />
+
+          <span className="search-loader">
+            {loading.status && <LoadingDots></LoadingDots>}
+          </span>
         </div>
 
         {/* Conditionally render dropdown list of results when searchbar is focused and there's a query string*/}
-        {displayResults && query && (
+        {displayResults && query && results.length > 0 && (
           <div className="results-wrapper">
             <ul className="results-list">
               {results.map((asset, index) => (

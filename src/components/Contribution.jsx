@@ -26,16 +26,18 @@ export default function Contribution({
         </button>
       </div>
       <form className="input-group">
-        <span className="input-group__adornment">$</span>
-        <input
-          className="input-group__input"
-          type={"number"}
-          min={0}
-          step={100}
-          value={amount}
-          onChange={(event) => setAmount(event.target.value)}
-          autoFocus
-        ></input>
+        <div className="contribution-wrapper">
+          <span className="input-group__adornment">$</span>
+          <input
+            className="input-group__input"
+            type={"number"}
+            min={0}
+            step={100}
+            value={amount}
+            onChange={(event) => setAmount(event.target.value)}
+            autoFocus
+          ></input>
+        </div>
         <button className="button--allocate" onClick={toggleAllocationVisible}>
           Allocate
         </button>
