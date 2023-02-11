@@ -88,13 +88,12 @@
 
 .input-group__adornment {
   border: solid 1px $gray;
-  padding-inline: 0.3rem;
-  padding-top: 0.1rem;
-
+  padding-inline: 0.2rem;
+  display: inline-flex;
+  align-items: center;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border-right: none;
-  font-size: 0.83rem;
 }
 
 .input-group__input {

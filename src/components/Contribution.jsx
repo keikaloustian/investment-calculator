@@ -1,5 +1,7 @@
 import "./Contribution.scss";
 
+import { MdAttachMoney } from "react-icons/md";
+
 export default function Contribution({
   amount,
   setAmount,
@@ -27,7 +29,10 @@ export default function Contribution({
       </div>
       <form className="input-group">
         <div className="contribution-wrapper">
-          <span className="input-group__adornment">$</span>
+          {/* <span className="input-group__adornment">$</span> */}
+          <span className="input-group__adornment">
+            <MdAttachMoney></MdAttachMoney>
+          </span>
           <input
             className="input-group__input"
             type={"number"}
