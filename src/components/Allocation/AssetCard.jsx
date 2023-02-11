@@ -7,10 +7,19 @@ import "./AssetCard.scss";
 
 import { CgClose } from "react-icons/cg";
 
-export default function AssetCard({ data, amount, remainder, setRemainder }) {
+export default function AssetCard({
+  data,
+  amount,
+  remainder,
+  setRemainder,
+  deletionHandler,
+}) {
   // Destructure price and error message from custom hook for fetching asset price
   const { price, error } = useApiPrice(data.symbol, data.country);
   const [sliderValue, setSliderValue] = useState(0);
+
+  // F
+  const remainderReseter = () => {};
 
   return (
     <li className="asset-card">
@@ -72,7 +81,11 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
       </span>
 
       <span className="asset-card__close">
-        <CgClose></CgClose>
+        <CgClose
+          onClick={() => {
+            deletionHandler();
+          }}
+        ></CgClose>
       </span>
 
       {error && <p className="price__error">{error}</p>}

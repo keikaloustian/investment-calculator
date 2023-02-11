@@ -2,9 +2,19 @@ import { useState } from "react";
 import AssetCard from "./AssetCard";
 import "./AssetList.scss";
 
-export default function AssetList({ assets, amount }) {
+export default function AssetList({ assets, setAssets, amount }) {
   // State to manage remaining percent of funds to allocate
   const [remainder, setRemainder] = useState(100);
+
+  // Handler for asset deletion
+  const deletionHandler = (index) => {
+    // Assemble new assets array without the one being deleted
+    const newAssets = [...assets];
+    newAssets.splice(index, 1);
+
+    // Update assets state with new array
+    setAssets(newAssets);
+  };
 
   return (
     <>
@@ -20,6 +30,7 @@ export default function AssetList({ assets, amount }) {
             amount={amount}
             remainder={remainder}
             setRemainder={setRemainder}
+            deletionHandler={() => deletionHandler(index)}
           ></AssetCard>
         ))}
       </ul>
