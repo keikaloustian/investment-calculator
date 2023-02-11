@@ -18,6 +18,7 @@ https://investallocator.netlify.app/
 Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page error
   
 ## Further Ideas  
+* Show "No assets found" if the search yields no results
 * Save contribution, asset selection and allocation (in cookies?) to facilitate repeated use
 * Filter already selected assets from search options
 
@@ -42,10 +43,12 @@ Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page
 
 ## Finished Product  
 ## Dependencies
-* vite
-* react-select
 * dotenv
+* react
+* react-dom
+* netlify-cli
 * node-fetch
-* netlify-cli  
+* sass
+* vite  
 
 ## Setup
