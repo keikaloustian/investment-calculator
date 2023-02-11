@@ -17,12 +17,14 @@
 }
 
 .input-group__adornment--search {
-  padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+  padding-inline: 0.2rem;
+  display: inline-flex;
+  align-items: center;
   border: solid 1px $gray;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border-right: none;
-  font-size: 0.67rem;
+  font-size: 1rem;
 }
 
 .searchbar {
@@ -134,88 +136,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-// .searchbar {
-//   margin: 0 0.5rem;
-// }
-
-// .searchbar__control {
-//   background-color: white;
-//   font-size: 0.83rem;
-//   border: 1px $gray solid;
-//   border-radius: 3px;
-// }
-
-// .searchbar__value-container {
-//   padding: 0.125rem 0.5rem;
-// }
-
-// .searchbar__placeholder {
-//   color: $gray;
-//   margin: 0 0.125rem;
-// }
-
-// .searchbar__indicator-separator {
-//   background-color: $gray;
-//   margin-bottom: 0.5rem;
-//   margin-top: 0.5rem;
-// }
-
-// .searchbar__indicator {
-//   color: $gray;
-//   padding: 0.5rem;
-// }
-
-// .searchbar__clear-indicator:hover {
-//   color: $danger-red;
-// }
-
-// .searchbar__dropdown-indicator:hover {
-//   color: $dark-blue-gray;
-// }
-
-// .searchbar__multi-value {
-//   background-color: $light-bg-blue;
-//   border-radius: 0.125rem;
-//   margin: 0.125rem;
-// }
-
-// .searchbar__multi-value__label {
-//   border-radius: 0.125rem;
-//   color: hsl(0, 0%, 20%);
-//   font-size: 85%;
-//   padding: 3px;
-//   padding-left: 6px;
-// }
-
-// .searchbar__multi-value__remove {
-//   border-radius: 0.125rem;
-//   padding-left: 0.25rem;
-//   padding-right: 0.25rem;
-//   color: $med-blue-gray;
-// }
-
-// .searchbar__multi-value__remove:hover {
-//   color: $danger-red;
-// }
-
-// .searchbar__menu {
-//   margin-top: 0.5rem;
-//   background-color: white;
-//   border-radius: 0.25rem;
-//   box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);
-// }
-
-// .searchbar__menu-list {
-//   padding: 0.25rem 0;
-// }
-
-// .searchbar__option {
-//   background-color: transparent;
-//   color: inherit;
-//   padding: 8px 10px;
-// }
-
-// .searchbar__option--is-focused {
-//   background-color: $hover-bg-blue;
-// }
