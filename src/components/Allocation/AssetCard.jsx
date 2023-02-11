@@ -5,6 +5,8 @@ import displayPrice from "../../helpers/displayPrice";
 import LoadingDots from "./LoadingDots";
 import "./AssetCard.scss";
 
+import { CgClose } from "react-icons/cg";
+
 export default function AssetCard({ data, amount, remainder, setRemainder }) {
   // Destructure price and error message from custom hook for fetching asset price
   const { price, error } = useApiPrice(data.symbol, data.country);
@@ -67,6 +69,10 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
           price !== "unavailable" &&
           // Calculate no. of shares based on allocation and round down
           Math.floor((amount * (sliderValue / 100)) / Number(price))}
+      </span>
+
+      <span className="asset-card__close">
+        <CgClose></CgClose>
       </span>
 
       {error && <p className="price__error">{error}</p>}
