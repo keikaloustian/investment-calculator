@@ -3,6 +3,8 @@ import "./SearchBar.scss";
 import OutsideClickHandler from "../OutsideClickHandler";
 import LoadingDots from "./LoadingDots";
 
+import { IoMdSearch } from "react-icons/io";
+
 export default function SearchBar({ assets, setAssets }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -91,7 +93,10 @@ export default function SearchBar({ assets, setAssets }) {
         }}
       >
         <div className="searchbar-wrapper">
-          <span className="input-group__adornment--search">🔎</span>
+          {/* <span className="input-group__adornment--search">🔎</span> */}
+          <span className="input-group__adornment--search">
+            <IoMdSearch></IoMdSearch>
+          </span>
           <input
             type="text"
             name="searchbar"

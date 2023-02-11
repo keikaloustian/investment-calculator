@@ -17,12 +17,14 @@
 }
 
 .input-group__adornment--search {
-  padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+  padding-inline: 0.2rem;
+  display: inline-flex;
+  align-items: center;
   border: solid 1px $gray;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border-right: none;
-  font-size: 0.67rem;
+  font-size: 1rem;
 }
 
 .searchbar {
