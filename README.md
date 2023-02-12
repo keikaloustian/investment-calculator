@@ -16,7 +16,7 @@ https://investallocator.netlify.app/
 - [x] Create loading indicator to be displayed while asset price is being fetched  
 
 ### Known issues:
-* Adding more than one of same asset causes the "Encountered two children with the same key" warning (thus Further Idea #3)
+* Adding more than one of same asset causes the "Encountered two children with the same key" warning (thus Further Idea #3 below)
 * Ticker Tape 3rd party widget causing SameSite cookie attribute page error  
 * Ticker tape showing "Access Denied!" when cold starting the page
   
