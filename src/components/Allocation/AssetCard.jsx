@@ -1,10 +1,10 @@
 import { useState } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
-import handleSlider from "../../helpers/handleSlider";
+import sliderHandler from "../../helpers/sliderHandler";
 import displayPrice from "../../helpers/displayPrice";
 import LoadingDots from "./LoadingDots";
 import "./AssetCard.scss";
-import remainderResetter from "../../helpers/remainderResetter";
+import revertRemainder from "../../helpers/revertRemainder";
 
 import { CgClose } from "react-icons/cg";
 
@@ -58,7 +58,7 @@ export default function AssetCard({
         max={100}
         value={sliderValue}
         onInput={(event) =>
-          handleSlider(
+          sliderHandler(
             event,
             sliderValue,
             setSliderValue,
@@ -81,7 +81,7 @@ export default function AssetCard({
       <span className="asset-card__close">
         <CgClose
           onClick={() => {
-            // remainderResetter(sliderValue, remainder, setRemainder);
+            revertRemainder(sliderValue, remainder, setRemainder);
             deletionHandler();
           }}
         ></CgClose>

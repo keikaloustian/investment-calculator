@@ -18,7 +18,7 @@ export default function AssetList({ assets, setAssets, amount }) {
         {assets.map((asset, index) => (
           <AssetCard
             data={asset}
-            key={index}
+            key={`${asset.symbol} ${asset.exchange}`}
             amount={amount}
             remainder={remainder}
             setRemainder={setRemainder}
