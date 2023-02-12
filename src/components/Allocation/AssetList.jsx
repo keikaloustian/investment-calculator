@@ -10,7 +10,8 @@ export default function AssetList({ assets, setAssets, amount }) {
   return (
     <>
       <p className="remainder-msg">
-        You have <b>{remainder}%</b> of ${amount} remaining
+        You have <b className="remainder-msg__percent">{remainder}%</b> of $
+        {amount} remaining
       </p>
       {/* List of asset cards */}
       <ul className="asset-list">
