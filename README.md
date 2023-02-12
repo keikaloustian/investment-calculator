@@ -47,6 +47,8 @@ https://investallocator.netlify.app/
 * https://danielstern.ca/range.css/#/ - a CSS generator for range inputs
 
 ## Finished Product  
+![](https://github.com/keikaloustian/investment-calculator/blob/main/docs/InvestCalc_demo.gif)
+
 ## Dependencies
 * dotenv
 * react
