@@ -12,7 +12,7 @@
     "ticker exchange price__label allocation__label . shares__label close"
     "instrument instrument price__price allocation__slider allocation__percent shares__shares ."
     "error-message error-message error-message error-message error-message error-message error-message";
-  grid-template-columns: auto auto 105px 120px 45px min-content 16px;
+  grid-template-columns: auto auto 110px 120px 45px min-content 16px;
 }
 
 .asset-card__ticker {
@@ -102,11 +102,17 @@
       "price__label allocation__label . shares__label shares__shares ."
       "price__price allocation__slider allocation__percent shares__label shares__shares ."
       "error-message error-message error-message error-message error-message error-message";
-    grid-template-columns: 100px 120px 1fr 0.5fr 0.5fr 16px;
+    grid-template-columns: 105px 120px 1fr 0.5fr 0.5fr 16px;
   }
 
   .shares__label {
     align-self: center;
+  }
+
+  .price__label,
+  .allocation__label,
+  .shares__label {
+    margin-top: 0.5rem;
   }
 }
 
@@ -118,7 +124,7 @@
       "price__price allocation__slider allocation__percent shares__shares ."
       "error-message error-message error-message error-message error-message";
 
-    grid-template-columns: 100px 120px 1fr 0.5fr 16px;
+    grid-template-columns: 105px 120px 1fr 0.5fr 16px;
   }
 
   .shares__label {
@@ -137,7 +143,7 @@
     grid-template-areas:
       "ticker . exchange . close"
       "instrument instrument instrument instrument ."
-      "price__label . price__price . ."
+      "price__label price__price price__price . ."
       "allocation__label allocation__label . shares__label ."
       " allocation__slider allocation__slider allocation__percent shares__shares ."
       "error-message error-message error-message error-message error-message";
