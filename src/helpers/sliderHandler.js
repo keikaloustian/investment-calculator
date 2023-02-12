@@ -1,4 +1,4 @@
-export default function handleSlider(
+export default function sliderHandler(
   event,
   sliderValue,
   setSliderValue,

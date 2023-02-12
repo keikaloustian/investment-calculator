@@ -1,13 +1,20 @@
 import { useState } from "react";
 import useApiPrice from "../../hooks/useApiPrice";
-import handleSlider from "../../helpers/handleSlider";
+import sliderHandler from "../../helpers/sliderHandler";
 import displayPrice from "../../helpers/displayPrice";
 import LoadingDots from "./LoadingDots";
 import "./AssetCard.scss";
+import revertRemainder from "../../helpers/revertRemainder";
 
 import { CgClose } from "react-icons/cg";
 
-export default function AssetCard({ data, amount, remainder, setRemainder }) {
+export default function AssetCard({
+  data,
+  amount,
+  remainder,
+  setRemainder,
+  deletionHandler,
+}) {
   // Destructure price and error message from custom hook for fetching asset price
   const { price, error } = useApiPrice(data.symbol, data.country);
   const [sliderValue, setSliderValue] = useState(0);
@@ -51,7 +58,7 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
         max={100}
         value={sliderValue}
         onInput={(event) =>
-          handleSlider(
+          sliderHandler(
             event,
             sliderValue,
             setSliderValue,
@@ -72,7 +79,12 @@ export default function AssetCard({ data, amount, remainder, setRemainder }) {
       </span>
 
       <span className="asset-card__close">
-        <CgClose></CgClose>
+        <CgClose
+          onClick={() => {
+            revertRemainder(sliderValue, remainder, setRemainder);
+            deletionHandler();
+          }}
+        ></CgClose>
       </span>
 
       {error && <p className="price__error">{error}</p>}

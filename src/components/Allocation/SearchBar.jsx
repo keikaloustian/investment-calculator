@@ -43,7 +43,7 @@ export default function SearchBar({ assets, setAssets }) {
 
   // Handler function for when an asset in the results dropdown is selected by way of clicking or Tab navigation followed by Enter
   const resultSelectHandler = (asset) => {
-    // Assemble new array of assets to be invested in and set state
+    // Assemble new array of assets and update state
     const newAssets = [...assets, asset];
     setAssets(newAssets);
 
