@@ -49,8 +49,8 @@
     border: solid 1.5px $accent-blue;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    border-right: none;
     margin-left: 0.5rem;
+    border-right: none;
   }
 
   &--right {
@@ -63,9 +63,9 @@
 
   &--allocate {
     @include button(white, $confirm-green, $dark-green, 3.1px);
-    border: none;
     border-radius: 3px;
     margin-left: auto;
+    border: none;
   }
 }
 
