@@ -1,9 +1,8 @@
 @use "../abstracts/variables" as *;
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 
-*:focus {
-  outline: 2px auto $accent-blue;
-  border-radius: 3px;
+*:focus-visible {
+  outline: 2px solid $dark-blue-gray;
 }
 
 main {

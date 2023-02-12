@@ -12,7 +12,8 @@
 }
 
 .searchbar-wrapper:focus-within {
-  outline: 2px solid $accent-blue;
+  outline: 2px solid $dark-blue-gray;
+
   border-radius: 3px;
 }
 
@@ -98,7 +99,8 @@
 }
 
 .results-list__result:focus-visible {
-  outline: $accent-blue solid 2px;
+  outline: 2px solid $dark-blue-gray;
+
   border-radius: 2px;
 }
 
