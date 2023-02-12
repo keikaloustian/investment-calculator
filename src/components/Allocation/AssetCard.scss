@@ -110,7 +110,7 @@
   }
 }
 
-@media screen and (min-width: 641px) and (max-width: 740px) {
+@media screen and (min-width: 640px) and (max-width: 740px) {
   .asset-card {
     grid-template-areas:
       "ticker instrument instrument exchange close"
@@ -123,6 +123,12 @@
 
   .shares__label {
     align-self: center;
+  }
+
+  .price__label,
+  .allocation__label,
+  .shares__label {
+    margin-top: 0.5rem;
   }
 }
 
@@ -143,6 +149,6 @@
   .price__price,
   .price__unavailable {
     justify-self: start;
-    margin: 0.25rem 0;
+    margin-top: 0.5rem;
   }
 }
