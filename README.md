@@ -9,18 +9,23 @@ Design inspired by Questrade.
 https://investallocator.netlify.app/  
   
 ## To-do List  
-- [ ] Bug: remainder % not updating when asset is removed
-- [ ] Bug: ticker tape shows "Access Denied!" when cold starting the page
+- [x] Bug: remainder % not updating when asset is removed
 - [x] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
 - [x] Finish AssetCard layout for small screens
 - [x] Add rolling ticker tape widget across top  
 - [x] Create loading indicator to be displayed while asset price is being fetched  
-Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page error
+
+### Known issues:
+* Ticker Tape 3rd party widget causing SameSite cookie attribute page error  
+* Ticker tape showing "Access Denied!" when cold starting the page
   
 ## Further Ideas  
 * Show "No assets found" if the search yields no results
 * Save contribution, asset selection and allocation (in cookies?) to facilitate repeated use
 * Filter already selected assets from search options
+* Implement up & down arrow key navigation through search options
+* Explore useMemo hook for functions used in components that render frequently
+* Explore useReducer hook for SearchBar component
 
 ## Things I Used / Learned About
 * Vite
@@ -52,4 +57,3 @@ Known issue: Ticker Tape 3rd party widget causing SameSite cookie attribute page
 * sass
 * vite  
 
-## Setup
