@@ -11,7 +11,7 @@ function App() {
   const [allocationVisible, setAllocationVisible] = useState(false);
 
   // Hook to initialize ticker tape widget
-  useTickerTape();
+  // useTickerTape(); // Appears to be broken as of Feb 12th 2023
 
   return (
     <>
