@@ -33,7 +33,7 @@ https://investallocator.netlify.app/
 * ~~react-select AsyncSelect component~~
 * ~~useContext hook~~
 * useRef hook
-* stale closures in useEffect() 
+* stale closures in useEffect() (![video about stale closures](https://www.youtube.com/watch?v=eVRDqtTCd74&list=PLlF5JbVEKNWSLtkwpIFQzGmtBVqBtugN9&index=10))
 * A React component that detects clicks outside of it's DOM subtree (https://stackoverflow.com/a/42234988)
 * JavaScript fetch API and async-await syntax
 * Using third-party API's and widgets
