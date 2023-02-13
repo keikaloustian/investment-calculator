@@ -38,7 +38,7 @@ https://investallocator.netlify.app/
 * JavaScript fetch API and async-await syntax
 * Using third-party API's and widgets
 * Deploying on Netlify
-* CSS Grid
+* CSS Grid (![here's a great video by Kevin Powell](https://www.youtube.com/watch?v=rg7Fvvl3taU&list=PLlF5JbVEKNWSLtkwpIFQzGmtBVqBtugN9&index=9))
 * SASS
 * Focus, tabindex attribute & accessibility
 * onBlur runs before onClick; solution = onMouseDown w/ event.preventDefault()
