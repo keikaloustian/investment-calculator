@@ -15,11 +15,12 @@ https://investallocator.netlify.app/
 - [x] Finish AssetCard layout for small screens
 - [x] Add rolling ticker tape widget across top  
 - [x] Create loading indicator to be displayed while asset price is being fetched  
+- [x] Ticker tape showing "Access Denied!" when cold starting the page -> issue reported to and solved by Finage  
 
 ### Known issues:
 * Selecting the same asset more than once brings up the "Encountered two children with the same key" warning and can cause issues when deleting them (thus Further Idea #3 below)
 * Ticker Tape 3rd party widget causing SameSite cookie attribute page error in dev environment  
-* Ticker tape showing "Access Denied!" when cold starting the page
+
   
 ## Further Ideas  
 * Show "No assets found" if the search yields no results
