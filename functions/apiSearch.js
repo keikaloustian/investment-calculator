@@ -8,16 +8,15 @@ variables need to be defined in the Netlify Build environment variables
 import fetch from "node-fetch";
 
 const handler = async (event) => {
+  const endpoint = "https://api.twelvedata.com/symbol_search";
+
   // Capture search query from request
   const { symbol } = event.queryStringParameters;
 
   try {
-    const response = await fetch(
-      `${process.env.SEARCH_API_ENDPOINT}?symbol=${symbol}`,
-      {
-        headers: { Authorization: `apikey ${process.env.SEARCH_API_KEY}` },
-      }
-    );
+    const response = await fetch(`${endpoint}?symbol=${symbol}`, {
+      headers: { Authorization: `apikey ${process.env.SEARCH_API_KEY}` },
+    });
 
     // If response status is not ok, send status text as response body
     if (!response.ok) {
