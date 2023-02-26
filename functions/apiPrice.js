@@ -7,28 +7,38 @@ variables need to be defined in the Netlify Build environment variables
 
 import fetch from "node-fetch";
 
+// Include markets available from Finage's free API tier
 const countryCodes = {
   "United States": "trade/stock/",
-  Canada: "stock/canada/",
-  "United Kingdom": "stock/uk/",
-  Russia: "stock/moex/",
-  India: "stock/in/",
+  // Canada: "stock/canada/",
+  // "United Kingdom": "stock/uk/",
+  // Russia: "stock/moex/",
+  // India: "stock/in/",
 };
 
 const handler = async (event) => {
+  let endpoint = "https://api.finage.co.uk/last/";
+
   // Capture ticker and exchange from request
-  const { symbol, country } = event.queryStringParameters;
+  const { symbol, country, instrumentType } = event.queryStringParameters;
 
   // Lookup url code for country to which asset belongs
   const market = countryCodes[country];
 
-  if (!market) {
+  if (!market && instrumentType !== "ETF") {
     return { statusCode: 200, body: JSON.stringify({ price: "unavailable" }) };
+  }
+
+  // Assemble different request url depending on whether instrument is an ETF or not
+  if (instrumentType === "ETF") {
+    endpoint += `etf/${symbol}`;
+  } else {
+    endpoint += `${market}${symbol}`;
   }
 
   try {
     const response = await fetch(
-      `${process.env.PRICE_API_ENDPOINT}${market}${symbol}?apikey=${process.env.PRICE_API_KEY}`
+      `${endpoint}?apikey=${process.env.PRICE_API_KEY}`
     );
 
     // If response status is not ok, send status text as response body
