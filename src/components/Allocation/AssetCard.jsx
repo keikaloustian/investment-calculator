@@ -16,7 +16,11 @@ export default function AssetCard({
   deletionHandler,
 }) {
   // Destructure price and error message from custom hook for fetching asset price
-  const { price, error } = useApiPrice(data.symbol, data.country);
+  const { price, error } = useApiPrice(
+    data.symbol,
+    data.country,
+    data.instrument_type
+  );
   const [sliderValue, setSliderValue] = useState(0);
 
   return (
