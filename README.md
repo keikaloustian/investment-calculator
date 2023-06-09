@@ -2,7 +2,7 @@
 Web app for calculating how many shares of each asset in a portfolio (e.g. stocks, ETFs, etc) should be purchased based on user-defined contribution amount and allocation.  
   
 Design inspired by Questrade.  
-Financial data by ![Finage](https://finage.co.uk/) and ![twelvedata](https://twelvedata.com/)  
+Financial data by [Finage](https://finage.co.uk/) and [twelvedata](https://twelvedata.com/)  
   
 ## Live Demo  
 https://investallocator.netlify.app/  
