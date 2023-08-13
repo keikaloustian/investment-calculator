@@ -8,6 +8,7 @@ Financial data by [Finage](https://finage.co.uk/) and [twelvedata](https://twelv
 https://investallocator.netlify.app/  
   
 ## To-do List  
+- [ ] Bug: ticker tape not working
 - [x] Bug: remainder % not updating when asset is removed
 - [x] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
 - [x] Finish AssetCard layout for small screens
@@ -16,6 +17,7 @@ https://investallocator.netlify.app/
 - [x] Ticker tape showing "Access Denied!" when cold starting the page -> issue reported to and solved by Finage  
 
 ### Known issues:
+* App sometimes fails to load when cold starting and requires a refresh
 * Selecting the same asset more than once brings up the "Encountered two children with the same key" warning and can cause issues when deleting them (thus Further Idea #3 below)
 * Ticker Tape 3rd party widget causing SameSite cookie attribute page error in dev environment  
 
