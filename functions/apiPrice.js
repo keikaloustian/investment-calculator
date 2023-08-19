@@ -10,10 +10,10 @@ import fetch from "node-fetch";
 // Include markets available from Finage's free API tier
 const countryCodes = {
   "United States": "trade/stock/",
-  // Canada: "stock/canada/",
-  // "United Kingdom": "stock/uk/",
-  // Russia: "stock/moex/",
-  // India: "stock/in/",
+  Canada: "stock/canada/",
+  "United Kingdom": "stock/uk/",
+  Russia: "stock/moex/",
+  India: "stock/in/",
 };
 
 const handler = async (event) => {
