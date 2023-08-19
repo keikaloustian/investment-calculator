@@ -8,13 +8,12 @@ Financial data by [Finage](https://finage.co.uk/) and [twelvedata](https://twelv
 https://investallocator.netlify.app/  
   
 ## To-do List  
-- [ ] Bug: ticker tape not working
 - [x] Bug: remainder % not updating when asset is removed
 - [x] Bug: remainder % taking on negative value if slider is moved fast or clicked at value greater than remainder
 - [x] Finish AssetCard layout for small screens
 - [x] Add rolling ticker tape widget across top  
 - [x] Create loading indicator to be displayed while asset price is being fetched  
-- [x] Ticker tape showing "Access Denied!" when cold starting the page -> issue reported to and solved by Finage  
+- [ ] Ticker tape showing "Access Denied!" -> issue likely on provider's end (Finage)
 
 ### Known issues:
 * App sometimes fails to load when cold starting and requires a refresh
