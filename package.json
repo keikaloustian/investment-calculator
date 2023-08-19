@@ -10,18 +10,18 @@
     "netlify": "./node_modules/.bin/netlify"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.10.1"
   },
   "devDependencies": {
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
-    "@vitejs/plugin-react": "^3.0.0",
-    "netlify-cli": "^12.5.0",
-    "node-fetch": "^3.3.0",
-    "sass": "^1.57.1",
-    "vite": "^4.0.0"
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.4",
+    "netlify-cli": "^16.1.0",
+    "node-fetch": "^3.3.2",
+    "sass": "^1.66.1",
+    "vite": "^4.4.9"
   }
 }
