@@ -93,7 +93,6 @@ export default function SearchBar({ assets, setAssets }) {
         }}
       >
         <div className="searchbar-wrapper">
-          {/* <span className="input-group__adornment--search">🔎</span> */}
           <span className="input-group__adornment--search">
             <IoMdSearch></IoMdSearch>
           </span>

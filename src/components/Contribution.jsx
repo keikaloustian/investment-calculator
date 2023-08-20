@@ -56,7 +56,6 @@ export default function Contribution({
       </div>
       <form className="input-group">
         <div className="contribution-wrapper">
-          {/* <span className="input-group__adornment">$</span> */}
           <span className="input-group__adornment">
             <MdAttachMoney></MdAttachMoney>
           </span>
